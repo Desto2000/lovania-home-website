@@ -1,0 +1,193 @@
+---
+import '../../src/styles/about.css';
+import Layout from '../layouts/Layout.astro';
+import ContextAlert from '../components/ContextAlert.astro';
+import Markdown from '../components/Markdown.astro';
+
+const overview = `
+Lovania represents the convergence of cutting-edge research and enterprise infrastructure reality. We don't just implement existing solutions—we investigate, architect, and deliver innovations that push the boundaries of what's possible in distributed systems, data infrastructure, and machine learning operations.
+`;
+
+const mission = `
+Our mission is to bridge the critical gap between academic research and enterprise implementation. Through rigorous technical investigation and principled architectural design, we develop solutions that scale from proof-of-concept to production deployment across the most demanding enterprise environments.
+`;
+
+const approach = `
+We begin every engagement with fundamental research. Our team investigates the underlying challenges in distributed systems, analyzes performance bottlenecks at scale, and architects solutions grounded in both theoretical foundations and practical enterprise constraints.
+`;
+---
+
+<Layout title="About Lovania - Research-Driven Enterprise Infrastructure">
+    <ContextAlert class="mb-8" />
+
+    <!-- Hero Section -->
+    <section class="about-hero-section">
+        <div class="max-w-5xl mx-auto text-center px-6">
+            <h1 class="expression-title text-cyan-500 mb-8">About Lovania</h1>
+            <p class="text-xl sm:text-2xl font-medium text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+                Where advanced research meets enterprise infrastructure. We architect solutions that scale from innovation to implementation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="section-spacing">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="content-section">
+                <h2 class="section-title">Company Overview</h2>
+                <div class="content-grid">
+                    <div class="content-block">
+                        <h3 class="content-subtitle">Who We Are</h3>
+                        <Markdown content={overview} class="content-text" />
+                    </div>
+                    <div class="content-block">
+                        <h3 class="content-subtitle">Our Mission</h3>
+                        <Markdown content={mission} class="content-text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Focus Areas -->
+    <section class="section-spacing bg-gray-900/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="content-section">
+                <h2 class="section-title text-center">Core Focus Areas</h2>
+                <div class="focus-areas-grid">
+                    <div class="focus-area-card">
+                        <h3 class="focus-area-title">System Architecture</h3>
+                        <p class="focus-area-description">
+                            Research-driven design of distributed systems that scale across enterprise environments. We investigate architectural patterns,
+                            performance characteristics, and reliability models.
+                        </p>
+                    </div>
+                    <div class="focus-area-card">
+                        <h3 class="focus-area-title">Data Infrastructure</h3>
+                        <p class="focus-area-description">
+                            Advanced data pipeline architectures, storage optimization, and processing frameworks. Our research focuses on performance,
+                            scalability, and enterprise-grade reliability.
+                        </p>
+                    </div>
+                    <div class="focus-area-card">
+                        <h3 class="focus-area-title">ML Operations</h3>
+                        <p class="focus-area-description">
+                            Production machine learning infrastructure that bridges research and deployment. We architect MLOps solutions for enterprise-scale
+                            model training and inference.
+                        </p>
+                    </div>
+                    <div class="focus-area-card">
+                        <h3 class="focus-area-title">Performance Analysis</h3>
+                        <p class="focus-area-description">
+                            Deep technical analysis of system performance, bottleneck identification, and optimization strategies. Research-backed approaches to
+                            enterprise performance challenges.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section class="section-spacing">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="content-section">
+                <h2 class="section-title text-center">Our Approach</h2>
+                <div class="approach-content">
+                    <Markdown content={approach} class="approach-description" />
+
+                    <div class="approach-principles">
+                        <div class="principle-item">
+                            <div class="principle-number">01</div>
+                            <div class="principle-content">
+                                <h4 class="principle-title">Research Foundation</h4>
+                                <p class="principle-text">
+                                    Every solution begins with fundamental research into the underlying technical challenges and constraints.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-number">02</div>
+                            <div class="principle-content">
+                                <h4 class="principle-title">Enterprise Reality</h4>
+                                <p class="principle-text">
+                                    We architect solutions that work within real enterprise constraints, compliance requirements, and operational realities.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-number">03</div>
+                            <div class="principle-content">
+                                <h4 class="principle-title">Production Scale</h4>
+                                <p class="principle-text">Our solutions are designed and tested for production deployment at enterprise scale from day one.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Lovania -->
+    <section class="section-spacing bg-gray-900/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="content-section">
+                <h2 class="section-title text-center">Why Choose Lovania</h2>
+                <div class="advantages-table">
+                    <div class="advantage-row">
+                        <div class="advantage-label">Research-Driven Solutions</div>
+                        <div class="advantage-description">Every architecture decision is backed by thorough technical research and performance analysis</div>
+                    </div>
+                    <div class="advantage-row">
+                        <div class="advantage-label">Enterprise-Grade Reliability</div>
+                        <div class="advantage-description">
+                            Solutions designed for mission-critical production environments with enterprise compliance requirements
+                        </div>
+                    </div>
+                    <div class="advantage-row">
+                        <div class="advantage-label">Scalable Architecture</div>
+                        <div class="advantage-description">
+                            Infrastructure that scales from proof-of-concept to enterprise-wide deployment without architectural rewrites
+                        </div>
+                    </div>
+                    <div class="advantage-row">
+                        <div class="advantage-label">Deep Technical Expertise</div>
+                        <div class="advantage-description">Advanced knowledge in distributed systems, data infrastructure, and machine learning operations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Expertise -->
+    <section class="section-spacing">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="content-section">
+                <h2 class="section-title text-center">Expertise & Background</h2>
+                <div class="expertise-content">
+                    <div class="expertise-block">
+                        <h3 class="expertise-title">Technical Leadership</h3>
+                        <p class="expertise-text">
+                            Our team combines deep research experience with enterprise implementation expertise. We've architected solutions for large-scale
+                            distributed systems, designed high-performance data infrastructure, and led machine learning operations at enterprise scale.
+                        </p>
+                    </div>
+                    <div class="expertise-block">
+                        <h3 class="expertise-title">Research Background</h3>
+                        <p class="expertise-text">
+                            Extensive experience in systems research, performance optimization, and architectural design. Our approach is grounded in computer
+                            science fundamentals while remaining focused on practical enterprise applications.
+                        </p>
+                    </div>
+                    <div class="expertise-block">
+                        <h3 class="expertise-title">Enterprise Experience</h3>
+                        <p class="expertise-text">
+                            Proven track record of delivering enterprise-grade infrastructure solutions. We understand compliance requirements, operational
+                            constraints, and the realities of large-scale production deployments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

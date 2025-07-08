@@ -1,28 +1,125 @@
 ---
+import '../../src/styles/footer.css';
 
+export interface Props {
+    ctaTitle?: string;
+    ctaDescription?: string;
+    primaryCTA?: {
+        text: string;
+        href: string;
+    };
+    secondaryCTA?: {
+        text: string;
+        href: string;
+    };
+}
+
+const {
+    ctaTitle = 'Ready to Push Boundaries?',
+    ctaDescription = 'Explore our research initiatives or discuss how we can architect solutions for your enterprise infrastructure challenges.',
+    primaryCTA = {
+        text: 'Explore Our Research',
+        href: '/research'
+    },
+    secondaryCTA = {
+        text: 'Contact Us',
+        href: '/contact'
+    }
+} = Astro.props;
 ---
 
-<!-- CTA Section -->
-<section class="section-spacing bg-gradient-to-r from-gray-900 to-gray-800">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">Ready to Push Boundaries?</h2>
-        <p class="text-xl text-gray-300 mb-12 leading-relaxed">
-            Explore our research initiatives or discuss how we can architect solutions for your enterprise infrastructure challenges.
-        </p>
-        <!-- CTA Section Buttons -->
-        <div class="cta-buttons">
-            <a href="/research" class="btn-enterprise btn-primary">
-                <span>Explore Our Research</span>
-                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-            <a href="/contact" class="btn-enterprise btn-secondary">
-                <span>Contact Us</span>
-                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
+<!-- Footer CTA Section -->
+<footer class="footer-cta-section">
+    <!-- CTA Component -->
+    <section class="cta-section">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="cta-title">{ctaTitle}</h2>
+            <p class="cta-description">{ctaDescription}</p>
+            <div class="cta-buttons">
+                <a href={primaryCTA.href} class="btn-enterprise btn-primary">
+                    <span>{primaryCTA.text}</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href={secondaryCTA.href} class="btn-enterprise btn-secondary">
+                    <span>{secondaryCTA.text}</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Footer Content -->
+    <section class="footer-content">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Main Footer Layout -->
+            <div class="footer-layout">
+                <!-- Logo Section - Separate Block -->
+                <div class="footer-logo-section">
+                    <h3 class="logo-abs footer-brand-name">LOVANIA</h3>
+                    <p class="footer-brand-tagline">Research-Driven Enterprise Infrastructure</p>
+                </div>
+
+                <!-- Links Section -->
+                <div class="footer-links-section">
+                    <!-- Discover -->
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Discover</h4>
+                        <ul class="footer-links">
+                            <li><a href="/research" class="footer-link">Research</a></li>
+                            <li><a href="/methodology" class="footer-link">Methodology</a></li>
+                            <li><a href="/solutions" class="footer-link">Solutions</a></li>
+                            <li><a href="/case-studies" class="footer-link">Case studies</a></li>
+                            <li><a href="/insights" class="footer-link">Insights</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Connect -->
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Connect</h4>
+                        <ul class="footer-links">
+                            <li><a href="/contact" class="footer-link">Contact</a></li>
+                            <li><a href="/partnerships" class="footer-link">Partnerships</a></li>
+                            <li><a href="/research-collaboration" class="footer-link">Research collaboration</a></li>
+                            <li><a href="/support" class="footer-link">Support</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Follow/Social -->
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Follow</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://github.com/Desto2000" class="footer-link" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="/newsletter" class="footer-link">Newsletter</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Legal Links Section - Aligned with Main Columns -->
+                    <div class="footer-legal-section">
+                        <div class="footer-legal-grid">
+                            <!-- First Column - Aligned with Discover -->
+                            <div class="footer-legal-column">
+                                <a href="/contact" class="footer-legal-link">Contact Lovania</a>
+                                <a href="/terms" class="footer-legal-link">Terms of use</a>
+                            </div>
+
+                            <!-- Second Column - Aligned with Connect -->
+                            <div class="footer-legal-column">
+                                <a href="/privacy" class="footer-legal-link">Privacy</a>
+                                <a href="/accessibility" class="footer-legal-link">Accessibility</a>
+                            </div>
+
+                            <!-- Third Column - Empty (maintains alignment) -->
+                            <div class="footer-legal-column">
+                                <!-- Empty to maintain 3-column alignment -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
