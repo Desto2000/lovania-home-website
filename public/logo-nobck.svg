@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 270.93333 270.93333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="logo-nobck.svg"
+   inkscape:export-filename="logo-nobck.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.55657038"
+     inkscape:cx="424.9238"
+     inkscape:cy="689.9397"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1173">
+      <stop
+         style="stop-color:#6677fb;stop-opacity:1;"
+         offset="0"
+         id="stop1169" />
+      <stop
+         style="stop-color:#48aae4;stop-opacity:1;"
+         offset="0.27972028"
+         id="stop3647" />
+      <stop
+         style="stop-color:#3ac1d9;stop-opacity:1;"
+         offset="0.59906763"
+         id="stop3649" />
+      <stop
+         style="stop-color:#2adbcd;stop-opacity:1;"
+         offset="1"
+         id="stop3651" />
+    </linearGradient>
+    <rect
+       x="346.83871"
+       y="340.48635"
+       width="364.62531"
+       height="306.18362"
+       id="rect424" />
+    <rect
+       x="269.33995"
+       y="278.23325"
+       width="456.09926"
+       height="431.9603"
+       id="rect418" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1173"
+       id="linearGradient1175"
+       x1="76.511606"
+       y1="128.15453"
+       x2="196.76473"
+       y2="128.15453"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Katman 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:38.1px;font-family:Campton;-inkscape-font-specification:'Campton, @wght=800';font-variation-settings:'wght' 800;fill:url(#linearGradient1175);stroke:none;stroke-width:1.82562;stroke-miterlimit:0;fill-opacity:1"
+       x="62.224106"
+       y="209.11703"
+       id="text430"><tspan
+         sodipodi:role="line"
+         id="tspan428"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:238.125px;font-family:Campton;-inkscape-font-specification:'Campton, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.82562;stroke:none;fill-opacity:1;fill:url(#linearGradient1175)"
+         x="62.224106"
+         y="209.11703">L</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:238.125px;font-family:Campton;-inkscape-font-specification:'Campton, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.82562;stroke:none;fill-opacity:1;fill:url(#linearGradient1175)"
+         x="62.224106"
+         y="344.53171"
+         id="tspan590" /></text>
+  </g>
+</svg>

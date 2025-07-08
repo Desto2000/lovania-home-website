@@ -2,15 +2,110 @@
 
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
+    --color-primary: #6677fb;
     --color-primary-content: #101828;
     --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+    --background: #161616;
+    --default-font-family: 'IBM Plex Sans';
+    --spacing: .25rem;
+    --ring: oklch(.556 0 0);
+}
+
+@layer utilities {
+  .bg-complementary {
+    background-color: var(--background);
+  }
+}
+
+@layer utilities {
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+}
+@layer utilities {
+  .px-2 {
+    padding-inline: calc(var(--spacing)*2);
+  }
+}
+
+@layer utilities {
+  @media (min-width: 48rem) {
+    .md\:px-8 {
+      padding-inline: calc(var(--spacing)*8);
+    }
+  }
+}
+
+@layer utilities {
+  .py-3 {
+    padding-block: calc(var(--spacing)*3);
+  }
+}
+
+@layer base {
+  @supports (color:color-mix(in lab,red,red)) {
+    * {
+      outline-color: color-mix(in oklab,var(--ring)50%,transparent);
+    }
+  }
+}
+
+@layer utilities {
+  .justify-between {
+    justify-content: space-between;
+  }
+}
+
+@layer utilities {
+  .items-center {
+    align-items: center;
+  }
+}
+
+@layer utilities {
+  .w-full {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .min-h-\[4\.5rem\] {
+    min-height: 4.5rem;
+  }
+}
+
+@layer utilities {
+  .min-h-\[4\.5rem\] {
+    min-height: 4.5rem;
+  }
+}
+
+@layer utilities {
+  @media (min-width: 48rem) {
+    .md\:flex-1 {
+      flex: 1;
+    }
+  }
+}
+
+@layer utilities {
+  @media (min-width: 48rem) {
+    .md\:flex {
+      display: flex;
+    }
+  }
+}
+
+@layer base {
+  :host, html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    line-height: 1.5;
+    font-family: var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings,normal);
+    font-variation-settings: var(--default-font-variation-settings,normal);
+  }
 }
 
 @layer base {
@@ -23,7 +118,7 @@
     }
 
     a:not(.btn) {
-        @apply underline transition hover:opacity-80;
+        @apply transition hover:opacity-80;
     }
 
     pre {
