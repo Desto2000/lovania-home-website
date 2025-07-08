@@ -3,108 +3,59 @@
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --color-primary: #6677fb;
+    --color-primary-title: #c7ceff;
+    --color-primary-compilator: #be92ff;
     --color-primary-content: #101828;
     --color-complementary: #355c7d;
-    --background: #161616;
-    --default-font-family: 'IBM Plex Sans';
+    --color-black: #161616;
+    --font-size: 1.125rem;
+    --text-sm: .875rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --default-font-family: var(--font-geist-sans);
     --spacing: .25rem;
+    --font-weight-normal: 500;
     --ring: oklch(.556 0 0);
+    --text-xl--line-height: calc(1.75/1.25);
 }
 
-@layer utilities {
-  .bg-complementary {
-    background-color: var(--background);
-  }
+
+.dark {
+  --background: oklch(.2 0 0);
+  --foreground: oklch(.985 0 0);
+  --card: oklch(.205 0 0);
+  --card-foreground: oklch(.985 0 0);
+  --popover: oklch(.205 0 0);
+  --popover-foreground: oklch(.985 0 0);
+  --primary: oklch(.922 0 0);
+  --primary-foreground: oklch(.205 0 0);
+  --secondary: oklch(.269 0 0);
+  --secondary-foreground: oklch(.985 0 0);
+  --muted: oklch(.269 0 0);
+  --muted-foreground: oklch(.708 0 0);
+  --accent: oklch(.269 0 0);
+  --accent-foreground: oklch(.985 0 0);
+  --destructive: oklch(.704 .191 22.216);
+  --border: oklch(1 0 0/10%);
+  --input: oklch(1 0 0/15%);
+  --ring: oklch(.556 0 0);
 }
 
-@layer utilities {
-  .font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-  }
-}
-@layer utilities {
-  .px-2 {
-    padding-inline: calc(var(--spacing)*2);
-  }
-}
-
-@layer utilities {
-  @media (min-width: 48rem) {
-    .md\:px-8 {
-      padding-inline: calc(var(--spacing)*8);
-    }
-  }
-}
-
-@layer utilities {
-  .py-3 {
-    padding-block: calc(var(--spacing)*3);
-  }
-}
-
-@layer base {
-  @supports (color:color-mix(in lab,red,red)) {
-    * {
-      outline-color: color-mix(in oklab,var(--ring)50%,transparent);
-    }
-  }
-}
-
-@layer utilities {
-  .justify-between {
-    justify-content: space-between;
-  }
-}
-
-@layer utilities {
-  .items-center {
-    align-items: center;
-  }
-}
-
-@layer utilities {
-  .w-full {
-    width: 100%;
-  }
-}
-
-@layer utilities {
-  .min-h-\[4\.5rem\] {
-    min-height: 4.5rem;
-  }
-}
-
-@layer utilities {
-  .min-h-\[4\.5rem\] {
-    min-height: 4.5rem;
-  }
-}
-
-@layer utilities {
-  @media (min-width: 48rem) {
-    .md\:flex-1 {
-      flex: 1;
-    }
-  }
-}
-
-@layer utilities {
-  @media (min-width: 48rem) {
-    .md\:flex {
-      display: flex;
-    }
-  }
-}
 
 @layer base {
   :host, html {
+    text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
     line-height: 1.5;
     font-family: var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");
     font-feature-settings: var(--default-font-feature-settings,normal);
     font-variation-settings: var(--default-font-variation-settings,normal);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
 
@@ -132,6 +83,22 @@
 }
 
 @layer components {
+    .expression-title {
+        caret-color: var(--color-primary);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(90deg, var(--color-primary), var(--color-primary-content));
+        font-size: 3.75rem;
+        margin-block-end: 4rem;
+        line-height: 1;
+        font-weight: 300;
+        letter-spacing: 0;
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    }
+}
+
+@layer components {
     .markdown {
         > * {
             @apply my-6;
@@ -151,13 +118,16 @@
     }
 
     .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
+        @apply inline-flex items-center justify-center gap-2 bg-blue-600 text-white cursor-pointer font-semibold no-underline transition-colors;
         padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
+        font-size: var(--btn-font-size, 1rem);
+        line-height: 1.375;
+        letter-spacing: 0;
+        font-weight: 400;
+        display: inline-flex;
 
         &:hover {
-            @apply bg-primary/85;
+            @apply bg-blue-600/85;
         }
 
         &:disabled {
