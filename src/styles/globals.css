@@ -1,24 +1,23 @@
 @import 'tailwindcss';
 
 @theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'IBM Plex Sans', 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --color-primary: #6677fb;
     --color-primary-title: #c7ceff;
-    --color-primary-compilator: #be92ff;
+    --color-primary-compilator: #2adbcd;
     --color-primary-content: #101828;
-    --color-complementary: #355c7d;
+    --color-complementary: #2adbcd;
     --color-black: #161616;
     --font-size: 1.125rem;
     --text-sm: .875rem;
     --text-lg: 1.125rem;
     --text-xl: 1.25rem;
-    --default-font-family: var(--font-geist-sans);
+    --default-font-family: 'IBM Plex Sans', var(--font-geist-sans);
     --spacing: .25rem;
     --font-weight-normal: 500;
     --ring: oklch(.556 0 0);
     --text-xl--line-height: calc(1.75/1.25);
 }
-
 
 .dark {
   --background: oklch(.2 0 0);
@@ -41,7 +40,6 @@
   --ring: oklch(.556 0 0);
 }
 
-
 @layer base {
   :host, html {
     text-rendering: optimizeLegibility;
@@ -62,10 +60,29 @@
 @layer base {
     h1 {
         @apply text-4xl font-bold tracking-tight sm:text-5xl;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: 300;
+        letter-spacing: -0.025em;
     }
 
     h2 {
         @apply text-2xl font-bold sm:text-3xl;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+    }
+
+    h3 {
+        @apply text-lg font-semibold;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+    }
+
+    h4 {
+        @apply text-base font-semibold;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: 500;
     }
 
     a:not(.btn) {
@@ -89,12 +106,79 @@
         -webkit-background-clip: text;
         background-clip: text;
         background-image: linear-gradient(90deg, var(--color-primary), var(--color-primary-content));
-        font-size: 3.75rem;
-        margin-block-end: 4rem;
-        line-height: 1;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.1;
         font-weight: 300;
-        letter-spacing: 0;
-        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+        letter-spacing: -0.03em;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        margin-bottom: 1.5rem;
+    }
+
+    /* IBM-style asymmetric grid helpers */
+    .ibm-grid-asymmetric {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .ibm-grid-offset {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* IBM-style content cards */
+    .ibm-card {
+        background: linear-gradient(135deg, rgba(42, 219, 205, 0.05) 0%, rgba(102, 119, 251, 0.05) 100%);
+        border: 1px solid rgba(42, 219, 205, 0.2);
+        border-radius: 8px;
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ibm-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--color-complementary), transparent);
+    }
+
+    /* IBM-style accent lines */
+    .ibm-accent-line {
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .ibm-accent-line::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--color-complementary), var(--color-primary));
+    }
+
+    /* Stats styling */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .stat-item {
+        text-align: left;
+        padding: 1.5rem;
+        background: rgba(42, 219, 205, 0.05);
+        border-radius: 8px;
+        border-left: 4px solid var(--color-complementary);
     }
 }
 
@@ -104,8 +188,9 @@
             @apply my-6;
         }
 
-        :where(h1, h2) {
+        :where(h1, h2, h3, h4) {
             @apply mt-12 mb-6;
+            font-family: 'IBM Plex Sans', system-ui, sans-serif;
         }
 
         > :first-child {
@@ -115,19 +200,45 @@
         > :last-child {
             @apply mb-0;
         }
+
+        p {
+            line-height: 1.7;
+            font-weight: 400;
+        }
     }
 
     .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-blue-600 text-white cursor-pointer font-semibold no-underline transition-colors;
+        @apply inline-flex items-center justify-center gap-2 bg-complementary text-black cursor-pointer font-semibold no-underline transition-all duration-200;
         padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
         font-size: var(--btn-font-size, 1rem);
         line-height: 1.375;
-        letter-spacing: 0;
-        font-weight: 400;
-        display: inline-flex;
+        letter-spacing: 0.01em;
+        font-weight: 500;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        border-radius: 4px;
+        border: none;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
 
         &:hover {
-            @apply bg-blue-600/85;
+            @apply bg-complementary;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(42, 219, 205, 0.3);
+        }
+
+        &:hover::before {
+            left: 100%;
         }
 
         &:disabled {
@@ -137,7 +248,379 @@
 
     .btn-lg {
         --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
+        --btn-px: 2rem;
         --btn-py: 1.125rem;
     }
+}
+
+@layer components {
+    .leading-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .leading-button {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .leading-button-second {
+        @apply inline-flex items-center justify-center gap-2 bg-transparent text-complementary cursor-pointer font-semibold no-underline transition-all duration-200;
+        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
+        font-size: var(--btn-font-size, 1rem);
+        line-height: 1.375;
+        letter-spacing: 0.01em;
+        font-weight: 500;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        border-radius: 4px;
+        border: 2px solid var(--color-complementary);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--color-complementary);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        &:hover {
+            @apply text-black;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(42, 219, 205, 0.3);
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+
+        &:disabled {
+            @apply text-gray-400 bg-gray-700;
+        }
+    }
+}
+
+/* Responsive adjustments for IBM-style asymmetric design */
+@media (max-width: 768px) {
+    .ibm-grid-asymmetric,
+    .ibm-grid-offset {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .expression-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .leading-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .leading-button {
+        min-width: auto;
+    }
+}
+
+/* Enterprise Clean Design - No Effects, Sharp Corners */
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(42, 219, 205, 0.03) 0%, rgba(102, 119, 251, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(42, 219, 205, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Enterprise Buttons */
+.btn-enterprise {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem; /* Key change: use gap instead of space-between */
+    padding: 1.25rem 2rem; /* Increased padding for more breathing room */
+    font-size: 1rem; /* Slightly smaller, cleaner text */
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 0;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    min-width: 240px; /* Increased minimum width */
+    position: relative;
+    overflow: hidden;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    /* Remove justify-content space-between */
+}
+
+.btn-enterprise span {
+    flex: 0 0 auto; /* Prevent text from stretching */
+    white-space: nowrap; /* Keep text on one line */
+}
+
+.btn-primary {
+    background-color: var(--color-complementary);
+    border-color: var(--color-complementary);
+    color: #000;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--color-complementary);
+    color: var(--color-complementary);
+}
+
+.btn-enterprise:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(42, 219, 205, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #25c4b8;
+    border-color: #25c4b8;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-complementary);
+    color: #000;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevent arrow from shrinking */
+    margin-left: auto; /* Push arrow to the right, but with gap spacing */
+}
+
+.btn-enterprise:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Clean Focus Areas Table - No Background, Sharp Corners */
+.focus-table {
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    background: transparent; /* Same as page background */
+}
+
+.focus-row {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+    /* No hover effects */
+}
+
+.focus-row:last-child {
+    border-bottom: none;
+}
+
+.focus-label {
+    color: #e5e7eb;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.methodology-flexbox {
+    display: flex;
+    align-items: center; /* Perfect vertical centering */
+    justify-content: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.methodology-arrow-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent arrow container from shrinking */
+}
+
+.methodology-box {
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    border-radius: 0;
+    background: transparent;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    width: 200px;
+    flex-shrink: 0; /* Prevent boxes from shrinking */
+}
+
+.arrow-connector {
+    width: 24px;
+    height: 24px;
+    color: rgba(156, 163, 175, 0.6);
+    stroke-width: 1.5;
+}
+
+/* Alternative approach using flexbox for the entire grid */
+.methodology-grid-alternative {
+    display: flex;
+    align-items: center; /* Ensures everything is vertically centered */
+    justify-content: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Rest of your existing styles remain the same */
+
+/* Clean Stats Table - No Background, Sharp Corners */
+.stats-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    background: transparent; /* Same as page background */
+}
+
+.stats-box {
+    padding: 3rem 2.1rem;
+    text-align: center;
+    border-right: 1px solid rgba(75, 85, 99, 0.2);
+    /* No hover effects or transitions */
+}
+
+.stats-box:last-child {
+    border-right: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .methodology-flexbox {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .methodology-arrow-flex {
+        transform: rotate(90deg);
+    }
+    
+    .methodology-box {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .stats-table {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-box {
+        border-right: none;
+        border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+    }
+    
+    .stats-box:last-child {
+        border-bottom: none;
+    }
+    
+    .btn-enterprise {
+        width: 100%;
+        min-width: auto;
+        justify-content: space-between; /* On mobile, spread out for better touch targets */
+        gap: 1rem;
+    }
+    
+    .arrow-icon {
+        margin-left: 0; /* Reset margin on mobile */
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .expression-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .hero-buttons {
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}
+
+/* CTA section buttons */
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .cta-buttons {
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 639px) {
+    .btn-enterprise {
+        width: 100%;
+        min-width: auto;
+        justify-content: space-between; /* On mobile, spread out for better touch targets */
+        gap: 1rem;
+    }
+    
+    .arrow-icon {
+        margin-left: 0; /* Reset margin on mobile */
+    }
+}
+
+/* Section spacing */
+.section-spacing {
+    padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+    .section-spacing {
+        padding: 4rem 0;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
