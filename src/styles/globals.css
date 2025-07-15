@@ -667,3 +667,151 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* IBM-style Header Navigation */
+.ibm-header {
+    position: relative;
+    background-color: var(--background);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1584px; /* IBM's max-width standard */
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px; /* IBM's header height standard */
+}
+
+.header-brand {
+    flex-shrink: 0;
+}
+
+.brand-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.brand-link:hover {
+    opacity: 0.8;
+}
+
+.header-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem; /* IBM's navigation spacing */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 0.875rem; /* 14px - IBM's nav font size */
+    font-weight: 400;
+    line-height: 1.125rem; /* 18px */
+    letter-spacing: 0.16px; /* IBM's letter spacing */
+    color: #f4f4f4; /* IBM gray-10 */
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    border-bottom-color: var(--color-primary);
+}
+
+.nav-link--active {
+    color: #ffffff;
+    border-bottom-color: var(--color-primary);
+    font-weight: 500;
+}
+
+.header-utilities {
+    flex-shrink: 0;
+    min-width: 48px; /* Reserve space for mobile menu */
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 1rem;
+        min-height: 56px; /* Slightly taller on mobile */
+    }
+
+    .header-nav {
+        display: none; /* Hide main nav on mobile - could add mobile menu later */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--color-gray-100);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom-width: 1px;
+    }
+
+    .nav-link:hover,
+    .nav-link--active {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(15, 98, 254, 0.1);
+    }
+}
+
+/* Hide mobile nav by default - in a real implementation, you'd add toggle functionality */
+@media (max-width: 768px) {
+    .header-nav {
+        display: flex; /* Show simplified nav on mobile for now */
+    }
+    
+    .nav-list {
+        position: static;
+        background: none;
+        box-shadow: none;
+        border: none;
+        flex-direction: row;
+        gap: 1rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .nav-list::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+        font-size: 0.75rem;
+    }
+}
