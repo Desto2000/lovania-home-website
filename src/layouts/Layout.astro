@@ -4,6 +4,7 @@ import '@fontsource-variable/inter/wght.css';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/Seo.astro';
 
 export interface Props {
     title: string;
@@ -29,7 +30,7 @@ const { title, ctaTitle, ctaDescription, primaryCTA, secondaryCTA } = Astro.prop
         <title>{title}</title>
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <link rel="icon" type="image/png" href="/pullinbootspp.png" />
+        <link rel="icon" type="image/x-icon" href="/logo-hat.png" />
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
     </head>
     <body class="antialiased">

@@ -1,5 +1,6 @@
 ---
 import '../../src/styles/footer.css';
+import LSVG from '../components/LogoSVG.astro';
 
 export interface Props {
     ctaTitle?: string;
@@ -59,7 +60,10 @@ const {
             <div class="footer-layout">
                 <!-- Logo Section - Separate Block -->
                 <div class="footer-logo-section">
-                    <h3 class="logo-abs footer-brand-name">LOVANIA</h3>
+                    <div style="display: inline-flex; gap: 0.5rem;">
+                        <LSVG size={40} />
+                        <h3 class="logo-abs footer-brand-name">LOVANIA</h3>
+                    </div>
                     <p class="footer-brand-tagline">Research-Driven Enterprise Infrastructure</p>
                 </div>
 
