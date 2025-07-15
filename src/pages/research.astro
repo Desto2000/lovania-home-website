@@ -2,8 +2,313 @@
 import Layout from '../layouts/Layout.astro';
 import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
+
+const researchAreas = [
+    {
+        title: "Distributed Systems Architecture",
+        description: "Research into scalable distributed system patterns, consensus algorithms, and fault-tolerant architectures for enterprise environments.",
+        publications: 8,
+        status: "Active"
+    },
+    {
+        title: "High-Performance Data Infrastructure",
+        description: "Investigation of storage optimization techniques, real-time processing frameworks, and enterprise data pipeline architectures.",
+        publications: 12,
+        status: "Active"
+    },
+    {
+        title: "Machine Learning Operations at Scale",
+        description: "Research into production ML infrastructure, model deployment strategies, and enterprise MLOps frameworks.",
+        publications: 6,
+        status: "Active"
+    },
+    {
+        title: "Cloud-Native Security Patterns",
+        description: "Security architecture research for cloud-native applications, zero-trust implementations, and compliance automation.",
+        publications: 10,
+        status: "Active"
+    }
+];
+
+const publications = [
+    {
+        title: "Consensus Algorithms in Enterprise Distributed Systems: A Performance Analysis",
+        authors: "Lovania Research Team",
+        venue: "International Conference on Distributed Computing Systems",
+        year: "2024",
+        type: "Conference Paper",
+        abstract: "Comprehensive analysis of consensus algorithm performance in enterprise environments with varying network conditions and failure scenarios."
+    },
+    {
+        title: "Optimizing Data Pipeline Performance for Real-Time Analytics",
+        authors: "Lovania Research Team",
+        venue: "Journal of Enterprise Architecture",
+        year: "2024",
+        type: "Journal Article", 
+        abstract: "Research into optimization techniques for real-time data processing pipelines in enterprise analytics environments."
+    },
+    {
+        title: "MLOps Architecture Patterns for Enterprise Scale Deployment",
+        authors: "Lovania Research Team",
+        venue: "Machine Learning Systems Conference",
+        year: "2023",
+        type: "Conference Paper",
+        abstract: "Investigation of architectural patterns for deploying and managing machine learning models at enterprise scale."
+    }
+];
+
+const methodology = `
+Our research methodology combines theoretical computer science foundations with practical enterprise implementation constraints. We conduct controlled experiments, performance benchmarking, and real-world case studies to validate our architectural designs and optimization techniques.
+`;
 ---
 
-<Layout title="Lovania - Research-Driven Enterprise Solutions">
+<Layout title="Lovania - Advanced Research in Enterprise Infrastructure">
     <ContextAlert class="mb-8" />
+    
+    <!-- Research Hero Section -->
+    <section class="text-center mb-16">
+        <h1 class="expression-title mb-6">Advanced Research in Enterprise Infrastructure</h1>
+        <p class="text-xl text-secondary max-w-4xl mx-auto leading-relaxed mb-8">
+            Driving innovation through rigorous research in distributed systems, data infrastructure, and machine learning operations. 
+            Our scientific approach ensures enterprise solutions are built on proven foundations.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm text-tertiary">
+            <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>36+ Research Publications</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>4 Active Research Areas</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Enterprise Validated</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas Grid -->
+    <section class="mb-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium text-primary mb-4">Active Research Areas</h2>
+                <p class="text-lg text-secondary max-w-3xl">
+                    Our research spans multiple domains of enterprise infrastructure, focusing on practical solutions 
+                    to real-world scalability and performance challenges.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {researchAreas.map((area) => (
+                    <div class="research-card">
+                        <div class="research-card-header">
+                            <h3 class="research-card-title">{area.title}</h3>
+                            <div class="research-status">
+                                <span class="status-indicator active"></span>
+                                <span class="status-text">{area.status}</span>
+                            </div>
+                        </div>
+                        <p class="research-card-description">{area.description}</p>
+                        <div class="research-card-footer">
+                            <div class="research-metric">
+                                <span class="metric-value">{area.publications}</span>
+                                <span class="metric-label">Publications</span>
+                            </div>
+                            <a href="#publications" class="research-link">
+                                View Publications
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Methodology Section -->
+    <section class="mb-20 bg-gradient-to-r from-background-secondary to-background-tertiary py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="ibm-grid-asymmetric items-center">
+                <div>
+                    <h2 class="text-3xl font-medium text-primary mb-6">Research Methodology</h2>
+                    <Markdown content={methodology} class="text-lg text-secondary leading-relaxed mb-8" />
+                    
+                    <div class="methodology-grid">
+                        <div class="methodology-step">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Theoretical Foundation</h4>
+                                <p class="step-description">Establish computer science foundations and mathematical models</p>
+                            </div>
+                        </div>
+                        
+                        <div class="methodology-step">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Controlled Experimentation</h4>
+                                <p class="step-description">Design and execute controlled performance experiments</p>
+                            </div>
+                        </div>
+                        
+                        <div class="methodology-step">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Enterprise Validation</h4>
+                                <p class="step-description">Validate findings in real-world enterprise environments</p>
+                            </div>
+                        </div>
+                        
+                        <div class="methodology-step">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Publication & Implementation</h4>
+                                <p class="step-description">Publish results and implement production solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="research-metrics-panel">
+                    <h3 class="panel-title">Research Impact</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-number">99.9%</div>
+                            <div class="metric-label">System Uptime</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">10x</div>
+                            <div class="metric-label">Performance Improvement</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">50+</div>
+                            <div class="metric-label">Enterprise Deployments</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">24/7</div>
+                            <div class="metric-label">Monitoring & Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="mb-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium text-primary mb-4">Recent Publications</h2>
+                <p class="text-lg text-secondary max-w-3xl">
+                    Our research findings are published in peer-reviewed journals and presented at leading conferences 
+                    in distributed systems, data engineering, and machine learning.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                {publications.map((pub) => (
+                    <article class="publication-card">
+                        <div class="publication-header">
+                            <h3 class="publication-title">{pub.title}</h3>
+                            <div class="publication-meta">
+                                <span class="publication-type">{pub.type}</span>
+                                <span class="publication-year">{pub.year}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-details">
+                            <p class="publication-authors">
+                                <strong>Authors:</strong> {pub.authors}
+                            </p>
+                            <p class="publication-venue">
+                                <strong>Published in:</strong> {pub.venue}
+                            </p>
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <h4 class="abstract-title">Abstract</h4>
+                            <p class="abstract-text">{pub.abstract}</p>
+                        </div>
+                        
+                        <div class="publication-actions">
+                            <button class="btn btn-secondary btn-sm">
+                                <svg class="btn-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span>Download PDF</span>
+                            </button>
+                            <button class="btn btn-tertiary btn-sm">
+                                <svg class="btn-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                </svg>
+                                <span>Share</span>
+                            </button>
+                            <button class="btn btn-tertiary btn-sm">
+                                <span>Cite</span>
+                            </button>
+                        </div>
+                    </article>
+                ))}
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="/publications" class="btn btn-primary">
+                    <span>View All Publications</span>
+                    <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Collaboration Section -->
+    <section class="mb-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="collaboration-panel">
+                <div class="collaboration-content">
+                    <h2 class="collaboration-title">Research Collaboration</h2>
+                    <p class="collaboration-description">
+                        We welcome collaboration with academic institutions, research organizations, and enterprise partners 
+                        to advance the state of the art in enterprise infrastructure.
+                    </p>
+                    
+                    <div class="collaboration-types">
+                        <div class="collaboration-type">
+                            <h4 class="type-title">Academic Partnerships</h4>
+                            <p class="type-description">Joint research projects with universities and research institutions</p>
+                        </div>
+                        <div class="collaboration-type">
+                            <h4 class="type-title">Industry Collaboration</h4>
+                            <p class="type-description">Research partnerships with technology companies and enterprises</p>
+                        </div>
+                        <div class="collaboration-type">
+                            <h4 class="type-title">Open Source Contributions</h4>
+                            <p class="type-description">Contributing research findings to open source projects and standards</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-actions">
+                        <a href="/contact" class="btn btn-primary">
+                            <span>Start Collaboration</span>
+                            <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                        <a href="/research-proposals" class="btn btn-secondary">
+                            <span>Research Proposals</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
