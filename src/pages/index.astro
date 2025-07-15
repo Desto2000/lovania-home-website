@@ -15,55 +15,61 @@ Our approach is research-first: we investigate fundamental challenges in distrib
 <Layout title="Lovania - Research-Driven Enterprise Solutions">
     <ContextAlert class="mb-8" />
 
-    <!-- Hero Section - Perfect Viewport Fit -->
-    <section class="hero-section h-screen flex items-center justify-center relative">
-        <div class="max-w-5xl mx-auto text-center px-6">
-            <h1 class="expression-title text-cyan-500 mb-8">Research-Driven Enterprise Infrastructure</h1>
-            <p class="text-xl sm:text-2xl font-medium text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-                We conduct advanced research in system architecture and data infrastructure, delivering enterprise-grade solutions that push technological
-                boundaries.
-            </p>
-            <div class="hero-buttons">
-                <a href="/research" class="btn-enterprise btn-primary">
-                    <span>Explore Our Research</span>
-                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-                <a href="/contact" class="btn-enterprise btn-secondary">
-                    <span>Contact Us</span>
-                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
+    <!-- Hero Section - IBM Asymmetric Grid -->
+    <section class="ibm-hero-section">
+        <div class="ibm-container">
+            <div class="ibm-hero-grid">
+                <div class="ibm-hero-content">
+                    <h1 class="ibm-hero-title">Research-Driven Enterprise Infrastructure</h1>
+                    <p class="ibm-hero-description">
+                        We conduct advanced research in system architecture and data infrastructure, delivering enterprise-grade solutions that push technological
+                        boundaries.
+                    </p>
+                    <div class="ibm-hero-actions">
+                        <a href="/research" class="ibm-btn ibm-btn--primary">
+                            <span>Explore Our Research</span>
+                            <svg class="ibm-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="/contact" class="ibm-btn ibm-btn--secondary">
+                            <span>Contact Us</span>
+                            <svg class="ibm-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibm-hero-visual">
+                    <!-- Reserved space for future visual elements -->
+                    <div class="ibm-hero-accent"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="section-spacing">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-white">Bridging Research & Reality</h2>
-                    <Markdown content={mission} class="text-lg text-gray-300 leading-relaxed" />
+    <!-- Mission Section - IBM Asymmetric Grid -->
+    <section class="ibm-section">
+        <div class="ibm-container">
+            <div class="ibm-grid-2-1">
+                <div class="ibm-content-primary">
+                    <h2 class="ibm-section-title">Bridging Research & Reality</h2>
+                    <Markdown content={mission} class="ibm-body-text" />
                 </div>
-                <div class="lg:pl-8">
-                    <h3 class="text-xl font-semibold mb-8 text-complementary">Our Focus Areas</h3>
-
-                    <!-- Table-like Focus Areas -->
-                    <div class="focus-table">
-                        <div class="focus-row">
-                            <span class="focus-label">System Architecture</span>
+                <div class="ibm-content-secondary">
+                    <h3 class="ibm-section-subtitle">Our Focus Areas</h3>
+                    <div class="ibm-focus-list">
+                        <div class="ibm-focus-item">
+                            <span class="ibm-focus-label">System Architecture</span>
                         </div>
-                        <div class="focus-row">
-                            <span class="focus-label">Data Infrastructure</span>
+                        <div class="ibm-focus-item">
+                            <span class="ibm-focus-label">Data Infrastructure</span>
                         </div>
-                        <div class="focus-row">
-                            <span class="focus-label">Machine Learning Operations</span>
+                        <div class="ibm-focus-item">
+                            <span class="ibm-focus-label">Machine Learning Operations</span>
                         </div>
-                        <div class="focus-row">
-                            <span class="focus-label">Performance Analysis</span>
+                        <div class="ibm-focus-item">
+                            <span class="ibm-focus-label">Performance Analysis</span>
                         </div>
                     </div>
                 </div>
@@ -71,65 +77,58 @@ Our approach is research-first: we investigate fundamental challenges in distrib
         </div>
     </section>
 
-    <!-- Methodology Section with Flexbox for Perfect Centering -->
-    <section class="section-spacing bg-gray-900/20">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-white">Our Methodology</h2>
-            <Markdown content={approach} class="text-lg text-gray-300 leading-relaxed mb-16 max-w-3xl mx-auto" />
+    <!-- Methodology Section - IBM Card Layout -->
+    <section class="ibm-section ibm-section--gray">
+        <div class="ibm-container">
+            <div class="ibm-section-header">
+                <h2 class="ibm-section-title">Our Methodology</h2>
+                <Markdown content={approach} class="ibm-body-text ibm-section-description" />
+            </div>
 
-            <!-- Flexbox Methodology Layout for Perfect Arrow Centering -->
-            <div class="methodology-flexbox">
-                <div class="methodology-box">
-                    <h3 class="text-xl font-semibold text-white mb-3">Research</h3>
-                    <p class="text-gray-400">Deep technical investigation of system challenges</p>
+            <!-- IBM-style Process Cards -->
+            <div class="ibm-process-grid">
+                <div class="ibm-process-card">
+                    <div class="ibm-process-number">01</div>
+                    <h3 class="ibm-process-title">Research</h3>
+                    <p class="ibm-process-description">Deep technical investigation of system challenges</p>
                 </div>
 
-                <div class="methodology-arrow-flex">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="arrow-connector">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
+                <div class="ibm-process-card">
+                    <div class="ibm-process-number">02</div>
+                    <h3 class="ibm-process-title">Architect</h3>
+                    <p class="ibm-process-description">Design scalable enterprise solutions</p>
                 </div>
 
-                <div class="methodology-box">
-                    <h3 class="text-xl font-semibold text-white mb-3">Architect</h3>
-                    <p class="text-gray-400">Design scalable enterprise solutions</p>
-                </div>
-
-                <div class="methodology-arrow-flex">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="arrow-connector">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </div>
-
-                <div class="methodology-box">
-                    <h3 class="text-xl font-semibold text-white mb-3">Deliver</h3>
-                    <p class="text-gray-400">Production-ready infrastructure</p>
+                <div class="ibm-process-card">
+                    <div class="ibm-process-number">03</div>
+                    <h3 class="ibm-process-title">Deliver</h3>
+                    <p class="ibm-process-description">Production-ready infrastructure</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section-spacing">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-white">Enterprise-Grade Results</h2>
+    <!-- Stats Section - IBM Card Grid -->
+    <section class="ibm-section">
+        <div class="ibm-container">
+            <h2 class="ibm-section-title ibm-section-title--center">Enterprise-Grade Results</h2>
 
-            <!-- Table-like Stats Grid -->
-            <div class="stats-table">
-                <div class="stats-box">
-                    <div class="text-5xl font-bold text-complementary mb-4">Research-First</div>
-                    <div class="text-xl text-gray-300 font-medium mb-2">Approach to Innovation</div>
-                    <div class="text-gray-500">Deep technical research drives every solution we architect</div>
+            <!-- IBM-style Stats Grid -->
+            <div class="ibm-stats-grid">
+                <div class="ibm-stat-card">
+                    <div class="ibm-stat-value">Research-First</div>
+                    <div class="ibm-stat-label">Approach to Innovation</div>
+                    <div class="ibm-stat-description">Deep technical research drives every solution we architect</div>
                 </div>
-                <div class="stats-box">
-                    <div class="text-5xl font-bold text-complementary mb-4">Enterprise-Grade</div>
-                    <div class="text-xl text-gray-300 font-medium mb-2">Solutions & Architecture</div>
-                    <div class="text-gray-500">Built to scale and trusted by enterprise organizations</div>
+                <div class="ibm-stat-card">
+                    <div class="ibm-stat-value">Enterprise-Grade</div>
+                    <div class="ibm-stat-label">Solutions & Architecture</div>
+                    <div class="ibm-stat-description">Built to scale and trusted by enterprise organizations</div>
                 </div>
-                <div class="stats-box">
-                    <div class="text-5xl font-bold text-complementary mb-4">Production-Ready</div>
-                    <div class="text-xl text-gray-300 font-medium mb-2">Scalable Infrastructure</div>
-                    <div class="text-gray-500">From proof-of-concept to production deployment</div>
+                <div class="ibm-stat-card">
+                    <div class="ibm-stat-value">Production-Ready</div>
+                    <div class="ibm-stat-label">Scalable Infrastructure</div>
+                    <div class="ibm-stat-description">From proof-of-concept to production deployment</div>
                 </div>
             </div>
         </div>
