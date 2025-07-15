@@ -1,9 +1,526 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
 ---
 
-<Layout title="Lovania - Research-Driven Enterprise Solutions">
+<Layout title="Lovania - Contact & Project Inquiries">
     <ContextAlert class="mb-8" />
+    
+    <!-- Hero Section -->
+    <section class="text-center mb-16">
+        <h1 class="expression-title text-cyan-500 mb-6">Start Your Project</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Tell us about your enterprise infrastructure challenges. Our research-driven approach ensures we deliver 
+            solutions that are both innovative and production-ready.
+        </p>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="mb-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- Progress Steps -->
+            <div class="mb-8">
+                <div class="flex items-center justify-center space-x-8">
+                    <div class="flex items-center text-complementary">
+                        <div class="w-8 h-8 rounded-full border-2 border-complementary bg-complementary text-black flex items-center justify-center mr-3">
+                            1
+                        </div>
+                        <span class="font-medium">Contact Information</span>
+                    </div>
+                    
+                    <div class="w-16 h-0.5 bg-gray-600" id="step2-line"></div>
+                    
+                    <div class="flex items-center text-gray-600" id="step2">
+                        <div class="w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center mr-3">
+                            2
+                        </div>
+                        <span class="font-medium">Project Details</span>
+                    </div>
+                    
+                    <div class="w-16 h-0.5 bg-gray-600" id="step3-line"></div>
+                    
+                    <div class="flex items-center text-gray-600" id="step3">
+                        <div class="w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center mr-3">
+                            3
+                        </div>
+                        <span class="font-medium">Review & Submit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content -->
+            <div class="bg-gray-900/20 border border-gray-700 p-8">
+                <form id="contact-form" method="POST" action="/api/contact">
+                    <!-- Step 1: Contact Information -->
+                    <div id="step-contact">
+                        <h2 class="text-2xl font-bold text-white mb-6">Contact Information</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Full Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    required
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                    placeholder="Enter your full name"
+                                />
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                    placeholder="Enter your email address"
+                                />
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Company Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="company"
+                                    required
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                    placeholder="Enter your company name"
+                                />
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                    placeholder="Enter your phone number"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Details -->
+                    <div id="step-project" class="hidden">
+                        <h2 class="text-2xl font-bold text-white mb-6">Project Details</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Project Type *
+                                </label>
+                                <select
+                                    name="projectType"
+                                    required
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                >
+                                    <option value="">Select project type</option>
+                                    <option value="System Architecture">System Architecture</option>
+                                    <option value="Data Infrastructure">Data Infrastructure</option>
+                                    <option value="Machine Learning Operations">Machine Learning Operations</option>
+                                    <option value="Performance Analysis">Performance Analysis</option>
+                                    <option value="Cloud Migration">Cloud Migration</option>
+                                    <option value="Security Assessment">Security Assessment</option>
+                                    <option value="Custom Solution">Custom Solution</option>
+                                </select>
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Project Description *
+                                </label>
+                                <textarea
+                                    name="description"
+                                    required
+                                    rows="4"
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors resize-vertical"
+                                    placeholder="Describe your project requirements, challenges, and objectives..."
+                                ></textarea>
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">
+                                        Timeline *
+                                    </label>
+                                    <select
+                                        name="timeline"
+                                        required
+                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                    >
+                                        <option value="">Select timeline</option>
+                                        <option value="1-2 months">1-2 months</option>
+                                        <option value="3-6 months">3-6 months</option>
+                                        <option value="6-12 months">6-12 months</option>
+                                        <option value="12+ months">12+ months</option>
+                                        <option value="Ongoing engagement">Ongoing engagement</option>
+                                    </select>
+                                    <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">
+                                        Budget Range
+                                    </label>
+                                    <select
+                                        name="budget"
+                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
+                                    >
+                                        <option value="">Select budget range</option>
+                                        <option value="Under $50k">Under $50k</option>
+                                        <option value="$50k - $100k">$50k - $100k</option>
+                                        <option value="$100k - $250k">$100k - $250k</option>
+                                        <option value="$250k - $500k">$250k - $500k</option>
+                                        <option value="$500k+">$500k+</option>
+                                        <option value="Discuss with team">Discuss with team</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">
+                                    Specific Requirements
+                                </label>
+                                <textarea
+                                    name="requirements"
+                                    rows="3"
+                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors resize-vertical"
+                                    placeholder="Any specific technologies, compliance requirements, or constraints we should know about..."
+                                ></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Review -->
+                    <div id="step-review" class="hidden">
+                        <h2 class="text-2xl font-bold text-white mb-6">Review Your Request</h2>
+                        <div id="review-content" class="space-y-8">
+                            <!-- Review content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div id="success-message" class="hidden text-center">
+                        <div class="mb-6">
+                            <svg class="w-16 h-16 mx-auto text-complementary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4">Thank You!</h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Your project inquiry has been submitted successfully. Our team will review your requirements and get back to you within 24 hours.
+                        </p>
+                        <button type="button" id="new-submission" class="btn btn-enterprise btn-primary">
+                            Submit Another Request
+                        </button>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between mt-8" id="form-navigation">
+                        <button type="button" id="back-btn" class="btn btn-enterprise btn-secondary opacity-50 cursor-not-allowed" disabled>
+                            <span>Back</span>
+                        </button>
+                        
+                        <button type="button" id="next-btn" class="btn btn-enterprise btn-primary">
+                            <span>Continue</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+
+                        <button type="submit" id="submit-btn" class="btn btn-enterprise btn-primary hidden">
+                            <span>Submit Request</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="submit-error" class="mt-4 p-4 bg-red-900/20 border border-red-500 text-red-300 hidden">
+                        Failed to submit form. Please try again.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="ibm-card text-center">
+            <div class="mb-4">
+                <svg class="w-8 h-8 mx-auto text-complementary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Email Response</h3>
+            <p class="text-gray-300">Initial response within 24 hours</p>
+        </div>
+
+        <div class="ibm-card text-center">
+            <div class="mb-4">
+                <svg class="w-8 h-8 mx-auto text-complementary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Technical Review</h3>
+            <p class="text-gray-300">Comprehensive analysis of your requirements</p>
+        </div>
+
+        <div class="ibm-card text-center">
+            <div class="mb-4">
+                <svg class="w-8 h-8 mx-auto text-complementary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Rapid Deployment</h3>
+            <p class="text-gray-300">From concept to production infrastructure</p>
+        </div>
+    </section>
 </Layout>
+
+<script>
+    // Multi-step form functionality
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    const steps = {
+        1: document.getElementById('step-contact'),
+        2: document.getElementById('step-project'),
+        3: document.getElementById('step-review')
+    };
+
+    const stepIndicators = {
+        1: { element: document.querySelector('[data-step="1"]'), line: null },
+        2: { element: document.getElementById('step2'), line: document.getElementById('step2-line') },
+        3: { element: document.getElementById('step3'), line: document.getElementById('step3-line') }
+    };
+
+    const backBtn = document.getElementById('back-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const form = document.getElementById('contact-form');
+
+    function updateStepIndicators() {
+        for (let i = 1; i <= totalSteps; i++) {
+            const indicator = stepIndicators[i];
+            const circle = indicator.element.querySelector('div');
+            
+            if (i < currentStep) {
+                // Completed step
+                indicator.element.className = 'flex items-center text-gray-400';
+                circle.className = 'w-8 h-8 rounded-full border-2 border-gray-400 flex items-center justify-center mr-3';
+                if (indicator.line) {
+                    indicator.line.className = 'w-16 h-0.5 bg-complementary';
+                }
+            } else if (i === currentStep) {
+                // Current step
+                indicator.element.className = 'flex items-center text-complementary';
+                circle.className = 'w-8 h-8 rounded-full border-2 border-complementary bg-complementary text-black flex items-center justify-center mr-3';
+            } else {
+                // Future step
+                indicator.element.className = 'flex items-center text-gray-600';
+                circle.className = 'w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center mr-3';
+                if (indicator.line) {
+                    indicator.line.className = 'w-16 h-0.5 bg-gray-600';
+                }
+            }
+        }
+    }
+
+    function showStep(step) {
+        // Hide all steps
+        Object.values(steps).forEach(el => el.classList.add('hidden'));
+        
+        // Show current step
+        steps[step].classList.remove('hidden');
+        
+        // Update navigation
+        backBtn.disabled = step === 1;
+        backBtn.className = step === 1 
+            ? 'btn btn-enterprise btn-secondary opacity-50 cursor-not-allowed'
+            : 'btn btn-enterprise btn-secondary';
+
+        if (step === totalSteps) {
+            nextBtn.classList.add('hidden');
+            submitBtn.classList.remove('hidden');
+            populateReview();
+        } else {
+            nextBtn.classList.remove('hidden');
+            submitBtn.classList.add('hidden');
+        }
+
+        updateStepIndicators();
+    }
+
+    function validateStep(step) {
+        const stepElement = steps[step];
+        const requiredFields = stepElement.querySelectorAll('input[required], select[required], textarea[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+            const errorDiv = field.parentElement.querySelector('.error-message');
+            
+            if (!field.value.trim()) {
+                field.classList.add('border-red-500');
+                errorDiv.textContent = 'This field is required';
+                errorDiv.classList.remove('hidden');
+                isValid = false;
+            } else if (field.type === 'email' && !isValidEmail(field.value)) {
+                field.classList.add('border-red-500');
+                errorDiv.textContent = 'Please enter a valid email address';
+                errorDiv.classList.remove('hidden');
+                isValid = false;
+            } else {
+                field.classList.remove('border-red-500');
+                errorDiv.classList.add('hidden');
+            }
+        });
+
+        return isValid;
+    }
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function populateReview() {
+        const formData = new FormData(form);
+        const reviewContent = document.getElementById('review-content');
+        
+        reviewContent.innerHTML = `
+            <div>
+                <h3 class="text-lg font-semibold text-complementary mb-4">Contact Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div><span class="text-gray-400">Name:</span> <p class="text-white">${formData.get('name') || ''}</p></div>
+                    <div><span class="text-gray-400">Email:</span> <p class="text-white">${formData.get('email') || ''}</p></div>
+                    <div><span class="text-gray-400">Company:</span> <p class="text-white">${formData.get('company') || ''}</p></div>
+                    ${formData.get('phone') ? `<div><span class="text-gray-400">Phone:</span> <p class="text-white">${formData.get('phone')}</p></div>` : ''}
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-complementary mb-4">Project Details</h3>
+                <div class="space-y-4">
+                    <div><span class="text-gray-400">Project Type:</span> <p class="text-white">${formData.get('projectType') || ''}</p></div>
+                    <div><span class="text-gray-400">Description:</span> <p class="text-white">${formData.get('description') || ''}</p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div><span class="text-gray-400">Timeline:</span> <p class="text-white">${formData.get('timeline') || ''}</p></div>
+                        ${formData.get('budget') ? `<div><span class="text-gray-400">Budget Range:</span> <p class="text-white">${formData.get('budget')}</p></div>` : ''}
+                    </div>
+                    ${formData.get('requirements') ? `<div><span class="text-gray-400">Specific Requirements:</span> <p class="text-white">${formData.get('requirements')}</p></div>` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+        if (validateStep(currentStep)) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    });
+
+    backBtn.addEventListener('click', () => {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitError = document.getElementById('submit-error');
+        submitError.classList.add('hidden');
+        
+        // Show loading state
+        submitBtn.innerHTML = `
+            <div class="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+            <span>Submitting...</span>
+        `;
+        submitBtn.disabled = true;
+
+        try {
+            const formData = new FormData(form);
+            const data = {
+                contactInfo: {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    company: formData.get('company'),
+                    phone: formData.get('phone') || ''
+                },
+                projectDetails: {
+                    projectType: formData.get('projectType'),
+                    description: formData.get('description'),
+                    timeline: formData.get('timeline'),
+                    budget: formData.get('budget') || '',
+                    requirements: formData.get('requirements') || ''
+                }
+            };
+
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                // Show success message
+                document.getElementById('form-navigation').classList.add('hidden');
+                Object.values(steps).forEach(el => el.classList.add('hidden'));
+                document.getElementById('success-message').classList.remove('hidden');
+            } else {
+                throw new Error('Failed to submit form');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            submitError.classList.remove('hidden');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = `
+                <span>Submit Request</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            `;
+            submitBtn.disabled = false;
+        }
+    });
+
+    // Reset form
+    document.getElementById('new-submission').addEventListener('click', () => {
+        currentStep = 1;
+        form.reset();
+        document.getElementById('success-message').classList.add('hidden');
+        document.getElementById('form-navigation').classList.remove('hidden');
+        showStep(currentStep);
+    });
+
+    // Clear errors on input
+    form.addEventListener('input', (e) => {
+        if (e.target.classList.contains('border-red-500')) {
+            e.target.classList.remove('border-red-500');
+            const errorDiv = e.target.parentElement.querySelector('.error-message');
+            if (errorDiv) {
+                errorDiv.classList.add('hidden');
+            }
+        }
+    });
+
+    // Initialize
+    showStep(currentStep);
+</script>
