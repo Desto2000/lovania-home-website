@@ -7,7 +7,7 @@
 /* CTA Section */
 .cta-section {
     padding: 6rem 0 4rem 0;
-    background: linear-gradient(135deg, rgba(42, 219, 205, 0.05) 0%, rgba(102, 119, 251, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.05) 0%, rgba(15, 98, 254, 0.08) 100%);
     position: relative;
 }
 
@@ -18,7 +18,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 30%, rgba(42, 219, 205, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 30%, rgba(15, 98, 254, 0.1) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -76,7 +76,7 @@
 .footer-brand-name {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--color-complementary);
+    color: var(--color-primary);
     margin-bottom: 0.75rem;
     letter-spacing: 0.1em;
     line-height: 1.1;
@@ -133,7 +133,7 @@
 }
 
 .footer-link:hover {
-    color: var(--color-complementary);
+    color: var(--color-primary);
 }
 
 /* Legal Section - Aligned with Main Columns */
@@ -165,7 +165,7 @@
 }
 
 .footer-legal-link:hover {
-    color: var(--color-complementary);
+    color: var(--color-primary);
 }
 
 /* Responsive Design */
