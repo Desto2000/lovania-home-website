@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Simple admin authentication check
+const adminSecret = Astro.url.searchParams.get('secret');
+const expectedSecret = import.meta.env.ADMIN_SECRET || 'admin_secret_key_change_in_production';
+
+if (adminSecret !== expectedSecret) {
+    return new Response('Unauthorized - Invalid admin secret', { status: 401 });
+}
+---
+
+<Layout title="Lovania - Admin Dashboard">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-white mb-4">Contact Submissions Admin Dashboard</h1>
+            <p class="text-gray-300">Manage and review project inquiries submitted through the contact form.</p>
+        </div>
+
+        <!-- Instructions -->
+        <div class="bg-gray-800 border border-gray-700 p-6 rounded mb-8">
+            <h2 class="text-xl font-semibold text-complementary mb-4">Dashboard Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                    <h3 class="font-semibold text-white">Submission Management</h3>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• View all contact submissions</li>
+                        <li>• Filter by status (new, reviewed, responded)</li>
+                        <li>• Search and sort functionality</li>
+                    </ul>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-semibold text-white">Status Tracking</h3>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Mark submissions as reviewed</li>
+                        <li>• Track response status</li>
+                        <li>• Add internal notes</li>
+                    </ul>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-semibold text-white">Export & Actions</h3>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>• Export to CSV</li>
+                        <li>• Quick email actions</li>
+                        <li>• Copy submission details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time Dashboard -->
+        <div id="admin-dashboard-container">
+            <div class="text-center py-12">
+                <div class="w-12 h-12 border-2 border-complementary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p class="text-gray-300">Loading admin dashboard...</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gray-800 p-6 rounded border border-gray-700">
+                <div class="text-2xl font-bold text-complementary mb-2" id="total-submissions">0</div>
+                <div class="text-sm text-gray-400">Total Submissions</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded border border-gray-700">
+                <div class="text-2xl font-bold text-yellow-400 mb-2" id="new-submissions">0</div>
+                <div class="text-sm text-gray-400">New Submissions</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded border border-gray-700">
+                <div class="text-2xl font-bold text-blue-400 mb-2" id="reviewed-submissions">0</div>
+                <div class="text-sm text-gray-400">Reviewed</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded border border-gray-700">
+                <div class="text-2xl font-bold text-green-400 mb-2" id="responded-submissions">0</div>
+                <div class="text-sm text-gray-400">Responded</div>
+            </div>
+        </div>
+
+        <!-- Submissions Table -->
+        <div class="bg-gray-800 border border-gray-700 rounded">
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex flex-wrap gap-4 items-center justify-between">
+                    <h2 class="text-xl font-semibold text-white">Recent Submissions</h2>
+                    <div class="flex gap-4">
+                        <select id="status-filter" class="px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded focus:border-complementary focus:outline-none">
+                            <option value="all">All Status</option>
+                            <option value="new">New</option>
+                            <option value="reviewed">Reviewed</option>
+                            <option value="responded">Responded</option>
+                        </select>
+                        <button id="export-csv" class="btn btn-enterprise btn-secondary text-sm px-4 py-2">
+                            Export CSV
+                        </button>
+                        <button id="refresh-data" class="btn btn-enterprise btn-primary text-sm px-4 py-2">
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="submissions-table" class="p-6">
+                <div class="text-center text-gray-400">
+                    No submissions loaded yet. Click refresh to load data.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin Dashboard JavaScript
+        let submissions = [];
+        let filteredSubmissions = [];
+
+        async function loadSubmissions() {
+            try {
+                const response = await fetch('/api/contact');
+                if (response.ok) {
+                    submissions = await response.json();
+                    updateStats();
+                    applyFilter();
+                    renderTable();
+                } else {
+                    console.error('Failed to load submissions');
+                    document.getElementById('submissions-table').innerHTML = 
+                        '<div class="text-center text-red-400">Failed to load submissions. Check console for errors.</div>';
+                }
+            } catch (error) {
+                console.error('Error loading submissions:', error);
+                document.getElementById('submissions-table').innerHTML = 
+                    '<div class="text-center text-red-400">Error loading submissions. API endpoint may not be available in development.</div>';
+            }
+        }
+
+        function updateStats() {
+            const total = submissions.length;
+            const newCount = submissions.filter(s => s.status === 'new').length;
+            const reviewedCount = submissions.filter(s => s.status === 'reviewed').length;
+            const respondedCount = submissions.filter(s => s.status === 'responded').length;
+
+            document.getElementById('total-submissions').textContent = total;
+            document.getElementById('new-submissions').textContent = newCount;
+            document.getElementById('reviewed-submissions').textContent = reviewedCount;
+            document.getElementById('responded-submissions').textContent = respondedCount;
+        }
+
+        function applyFilter() {
+            const statusFilter = document.getElementById('status-filter').value;
+            filteredSubmissions = statusFilter === 'all' 
+                ? [...submissions] 
+                : submissions.filter(s => s.status === statusFilter);
+        }
+
+        function renderTable() {
+            const tableContainer = document.getElementById('submissions-table');
+            
+            if (filteredSubmissions.length === 0) {
+                tableContainer.innerHTML = '<div class="text-center text-gray-400">No submissions found for the selected filter.</div>';
+                return;
+            }
+
+            const tableHTML = `
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="text-left py-3 px-4 text-gray-300">Name</th>
+                                <th class="text-left py-3 px-4 text-gray-300">Company</th>
+                                <th class="text-left py-3 px-4 text-gray-300">Project Type</th>
+                                <th class="text-left py-3 px-4 text-gray-300">Status</th>
+                                <th class="text-left py-3 px-4 text-gray-300">Date</th>
+                                <th class="text-left py-3 px-4 text-gray-300">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${filteredSubmissions.map(sub => `
+                                <tr class="border-b border-gray-700/50 hover:bg-gray-700/20">
+                                    <td class="py-3 px-4 text-white">${sub.contactInfo.name}</td>
+                                    <td class="py-3 px-4 text-gray-300">${sub.contactInfo.company}</td>
+                                    <td class="py-3 px-4 text-gray-300">${sub.projectDetails.projectType}</td>
+                                    <td class="py-3 px-4">
+                                        <span class="px-2 py-1 rounded text-xs ${getStatusBadgeClass(sub.status)}">
+                                            ${sub.status}
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4 text-gray-300">${new Date(sub.timestamp).toLocaleDateString()}</td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex gap-2">
+                                            <button onclick="viewSubmission('${sub.id}')" class="text-complementary hover:text-cyan-400 text-sm">View</button>
+                                            <button onclick="emailReply('${sub.contactInfo.email}', '${sub.id}')" class="text-blue-400 hover:text-blue-300 text-sm">Email</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
+            tableContainer.innerHTML = tableHTML;
+        }
+
+        function getStatusBadgeClass(status) {
+            switch (status) {
+                case 'new': return 'bg-complementary text-black';
+                case 'reviewed': return 'bg-blue-600 text-white';
+                case 'responded': return 'bg-green-600 text-white';
+                default: return 'bg-gray-600 text-white';
+            }
+        }
+
+        function viewSubmission(id) {
+            const submission = submissions.find(s => s.id === id);
+            if (submission) {
+                const details = `
+Name: ${submission.contactInfo.name}
+Email: ${submission.contactInfo.email}  
+Company: ${submission.contactInfo.company}
+Phone: ${submission.contactInfo.phone || 'Not provided'}
+
+Project Type: ${submission.projectDetails.projectType}
+Timeline: ${submission.projectDetails.timeline}
+Budget: ${submission.projectDetails.budget || 'Not specified'}
+
+Description: ${submission.projectDetails.description}
+
+Requirements: ${submission.projectDetails.requirements || 'None specified'}
+
+Submitted: ${new Date(submission.timestamp).toLocaleString()}
+Status: ${submission.status}
+                `;
+                alert(details);
+            }
+        }
+
+        function emailReply(email, submissionId) {
+            const subject = `Re: Your project inquiry (${submissionId})`;
+            const body = `Thank you for your interest in Lovania's services.
+
+We have received your project inquiry and our team will review your requirements. We'll get back to you within 24 hours with next steps.
+
+Best regards,
+The Lovania Team`;
+            
+            window.open(`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        }
+
+        function exportToCSV() {
+            if (filteredSubmissions.length === 0) {
+                alert('No submissions to export');
+                return;
+            }
+
+            const csvContent = [
+                // Header
+                'ID,Timestamp,Name,Email,Company,Phone,Project Type,Timeline,Budget,Status,Description,Requirements',
+                // Data
+                ...filteredSubmissions.map(sub => [
+                    sub.id,
+                    sub.timestamp,
+                    sub.contactInfo.name,
+                    sub.contactInfo.email,
+                    sub.contactInfo.company,
+                    sub.contactInfo.phone || '',
+                    sub.projectDetails.projectType,
+                    sub.projectDetails.timeline,
+                    sub.projectDetails.budget || '',
+                    sub.status,
+                    `"${sub.projectDetails.description.replace(/"/g, '""')}"`,
+                    `"${sub.projectDetails.requirements?.replace(/"/g, '""') || ''}"`
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `lovania-submissions-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Event Listeners
+        document.getElementById('status-filter').addEventListener('change', () => {
+            applyFilter();
+            renderTable();
+        });
+
+        document.getElementById('export-csv').addEventListener('click', exportToCSV);
+        document.getElementById('refresh-data').addEventListener('click', loadSubmissions);
+
+        // Initial load
+        loadSubmissions();
+    </script>
+</Layout>
