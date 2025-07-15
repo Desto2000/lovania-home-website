@@ -3,308 +3,424 @@ import Layout from '../layouts/Layout.astro';
 import ContextAlert from '../components/ContextAlert.astro';
 ---
 
-<Layout title="Lovania - Contact & Project Inquiries">
+<Layout title="Lovania - Enterprise Infrastructure Solutions">
     <ContextAlert class="mb-8" />
     
     <!-- Hero Section -->
     <section class="text-center mb-16">
-        <h1 class="expression-title text-cyan-500 mb-6">Start Your Project</h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Tell us about your enterprise infrastructure challenges. Our research-driven approach ensures we deliver 
-            solutions that are both innovative and production-ready.
+        <h1 class="expression-title mb-6">Enterprise Infrastructure Solutions</h1>
+        <p class="text-xl text-secondary max-w-4xl mx-auto leading-relaxed">
+            Partner with our research-driven team to architect enterprise-grade infrastructure solutions. 
+            Our proven methodology ensures scalable, production-ready implementations that drive business outcomes.
         </p>
     </section>
 
-    <!-- Contact Form -->
+    <!-- IBM Cloud-style Contact Form with Sidebar -->
     <section class="mb-16">
-        <div class="max-w-4xl mx-auto">
-            <!-- Progress Steps -->
-            <div class="mb-8">
-                <div class="flex items-center justify-center space-x-8">
-                    <div class="flex items-center text-complementary">
-                        <div class="w-8 h-8 rounded-full border-2 border-complementary bg-complementary text-black flex items-center justify-center mr-3">
-                            1
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- IBM-style Sidebar Navigation -->
+                <div class="lg:col-span-1">
+                    <div class="ibm-card sticky top-8">
+                        <h3 class="text-lg font-semibold text-primary mb-6">Project Setup</h3>
+                        
+                        <!-- Enhanced Step Indicators -->
+                        <nav class="space-y-4">
+                            <div class="step-indicator active" id="nav-step-1">
+                                <div class="step-circle">
+                                    <span class="step-number">1</span>
+                                    <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Contact Information</h4>
+                                    <p class="step-description">Basic contact details and company information</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-indicator" id="nav-step-2">
+                                <div class="step-circle">
+                                    <span class="step-number">2</span>
+                                    <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Technical Requirements</h4>
+                                    <p class="step-description">Infrastructure needs and technical specifications</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-indicator" id="nav-step-3">
+                                <div class="step-circle">
+                                    <span class="step-number">3</span>
+                                    <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div class="step-content">
+                                    <h4 class="step-title">Review & Submit</h4>
+                                    <p class="step-description">Final review and project submission</p>
+                                </div>
+                            </div>
+                        </nav>
+                        
+                        <!-- Enterprise Support Information -->
+                        <div class="mt-8 pt-6 border-t border-border">
+                            <h4 class="text-sm font-semibold text-primary mb-3 uppercase tracking-wider">Enterprise Support</h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-secondary">24-hour response SLA</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-secondary">Dedicated technical team</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-secondary">Enterprise-grade security</span>
+                                </div>
+                            </div>
                         </div>
-                        <span class="font-medium">Contact Information</span>
-                    </div>
-                    
-                    <div class="w-16 h-0.5 bg-gray-600" id="step2-line"></div>
-                    
-                    <div class="flex items-center text-gray-600" id="step2">
-                        <div class="w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center mr-3">
-                            2
-                        </div>
-                        <span class="font-medium">Project Details</span>
-                    </div>
-                    
-                    <div class="w-16 h-0.5 bg-gray-600" id="step3-line"></div>
-                    
-                    <div class="flex items-center text-gray-600" id="step3">
-                        <div class="w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center mr-3">
-                            3
-                        </div>
-                        <span class="font-medium">Review & Submit</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- Form Content -->
-            <div class="bg-gray-900/20 border border-gray-700 p-8">
-                <form id="contact-form" method="POST" action="/api/contact">
-                    <!-- Step 1: Contact Information -->
-                    <div id="step-contact">
-                        <h2 class="text-2xl font-bold text-white mb-6">Contact Information</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Full Name *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    required
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                    placeholder="Enter your full name"
-                                />
-                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Email Address *
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    required
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                    placeholder="Enter your email address"
-                                />
-                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Company Name *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="company"
-                                    required
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                    placeholder="Enter your company name"
-                                />
-                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Phone Number
-                                </label>
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                    placeholder="Enter your phone number"
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Project Details -->
-                    <div id="step-project" class="hidden">
-                        <h2 class="text-2xl font-bold text-white mb-6">Project Details</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Project Type *
-                                </label>
-                                <select
-                                    name="projectType"
-                                    required
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                >
-                                    <option value="">Select project type</option>
-                                    <option value="System Architecture">System Architecture</option>
-                                    <option value="Data Infrastructure">Data Infrastructure</option>
-                                    <option value="Machine Learning Operations">Machine Learning Operations</option>
-                                    <option value="Performance Analysis">Performance Analysis</option>
-                                    <option value="Cloud Migration">Cloud Migration</option>
-                                    <option value="Security Assessment">Security Assessment</option>
-                                    <option value="Custom Solution">Custom Solution</option>
-                                </select>
-                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Project Description *
-                                </label>
-                                <textarea
-                                    name="description"
-                                    required
-                                    rows="4"
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors resize-vertical"
-                                    placeholder="Describe your project requirements, challenges, and objectives..."
-                                ></textarea>
-                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-300 mb-2">
-                                        Timeline *
-                                    </label>
-                                    <select
-                                        name="timeline"
-                                        required
-                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                    >
-                                        <option value="">Select timeline</option>
-                                        <option value="1-2 months">1-2 months</option>
-                                        <option value="3-6 months">3-6 months</option>
-                                        <option value="6-12 months">6-12 months</option>
-                                        <option value="12+ months">12+ months</option>
-                                        <option value="Ongoing engagement">Ongoing engagement</option>
-                                    </select>
-                                    <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                <!-- Main Form Content -->
+                <div class="lg:col-span-3">
+                    <div class="ibm-card">
+                        <form id="contact-form" method="POST" action="/api/contact">
+                            
+                            <!-- Step 1: Contact Information -->
+                            <div id="step-contact" class="form-step">
+                                <div class="form-header">
+                                    <h2 class="form-title">Contact Information</h2>
+                                    <p class="form-subtitle">Please provide your contact details and company information to get started.</p>
                                 </div>
 
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-300 mb-2">
-                                        Budget Range
-                                    </label>
-                                    <select
-                                        name="budget"
-                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors"
-                                    >
-                                        <option value="">Select budget range</option>
-                                        <option value="Under $50k">Under $50k</option>
-                                        <option value="$50k - $100k">$50k - $100k</option>
-                                        <option value="$100k - $250k">$100k - $250k</option>
-                                        <option value="$250k - $500k">$250k - $500k</option>
-                                        <option value="$500k+">$500k+</option>
-                                        <option value="Discuss with team">Discuss with team</option>
-                                    </select>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Full Name <span class="required">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            required
+                                            class="form-input"
+                                            placeholder="Enter your full name"
+                                        />
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Work Email <span class="required">*</span>
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            required
+                                            class="form-input"
+                                            placeholder="your.email@company.com"
+                                        />
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Company Name <span class="required">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="company"
+                                            required
+                                            class="form-input"
+                                            placeholder="Enter your company name"
+                                        />
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Job Title <span class="required">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="jobTitle"
+                                            required
+                                            class="form-input"
+                                            placeholder="e.g., CTO, Infrastructure Architect"
+                                        />
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Phone Number
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            class="form-input"
+                                            placeholder="+1 (555) 123-4567"
+                                        />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Company Size <span class="required">*</span>
+                                        </label>
+                                        <select name="companySize" required class="form-select">
+                                            <option value="">Select company size</option>
+                                            <option value="1-50">1-50 employees</option>
+                                            <option value="51-200">51-200 employees</option>
+                                            <option value="201-1000">201-1,000 employees</option>
+                                            <option value="1001-5000">1,001-5,000 employees</option>
+                                            <option value="5000+">5,000+ employees</option>
+                                        </select>
+                                        <div class="form-error hidden"></div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div>
-                                <label class="block text-sm font-medium text-gray-300 mb-2">
-                                    Specific Requirements
-                                </label>
-                                <textarea
-                                    name="requirements"
-                                    rows="3"
-                                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white focus:border-complementary focus:outline-none transition-colors resize-vertical"
-                                    placeholder="Any specific technologies, compliance requirements, or constraints we should know about..."
-                                ></textarea>
+                            <!-- Step 2: Technical Requirements -->
+                            <div id="step-technical" class="form-step hidden">
+                                <div class="form-header">
+                                    <h2 class="form-title">Technical Requirements</h2>
+                                    <p class="form-subtitle">Help us understand your infrastructure needs and technical objectives.</p>
+                                </div>
+
+                                <div class="form-grid">
+                                    <div class="form-group form-group-full">
+                                        <label class="form-label">
+                                            Infrastructure Challenge <span class="required">*</span>
+                                        </label>
+                                        <select name="challengeType" required class="form-select">
+                                            <option value="">Select primary challenge</option>
+                                            <option value="system-architecture">System Architecture & Design</option>
+                                            <option value="data-infrastructure">Data Infrastructure & Analytics</option>
+                                            <option value="ml-operations">Machine Learning Operations</option>
+                                            <option value="cloud-migration">Cloud Migration & Modernization</option>
+                                            <option value="performance-optimization">Performance & Scalability</option>
+                                            <option value="security-compliance">Security & Compliance</option>
+                                            <option value="devops-automation">DevOps & Automation</option>
+                                            <option value="custom-solution">Custom Research Solution</option>
+                                        </select>
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group form-group-full">
+                                        <label class="form-label">
+                                            Technical Requirements <span class="required">*</span>
+                                        </label>
+                                        <textarea
+                                            name="requirements"
+                                            required
+                                            rows="4"
+                                            class="form-textarea"
+                                            placeholder="Describe your technical requirements, current infrastructure, challenges, and desired outcomes. Include any specific technologies, compliance requirements, or performance criteria."
+                                        ></textarea>
+                                        <div class="form-help">Be specific about technical constraints, scalability needs, and integration requirements.</div>
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Current Technology Stack
+                                        </label>
+                                        <textarea
+                                            name="techStack"
+                                            rows="3"
+                                            class="form-textarea"
+                                            placeholder="e.g., AWS, Kubernetes, PostgreSQL, Python, React..."
+                                        ></textarea>
+                                        <div class="form-help">List your current technologies, frameworks, and tools.</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Project Timeline <span class="required">*</span>
+                                        </label>
+                                        <select name="timeline" required class="form-select">
+                                            <option value="">Select timeline</option>
+                                            <option value="immediate">Immediate (within 1 month)</option>
+                                            <option value="1-3-months">1-3 months</option>
+                                            <option value="3-6-months">3-6 months</option>
+                                            <option value="6-12-months">6-12 months</option>
+                                            <option value="12+-months">12+ months</option>
+                                            <option value="ongoing">Ongoing engagement</option>
+                                        </select>
+                                        <div class="form-error hidden"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Investment Range
+                                        </label>
+                                        <select name="budget" class="form-select">
+                                            <option value="">Select investment range</option>
+                                            <option value="under-50k">Under $50,000</option>
+                                            <option value="50k-100k">$50,000 - $100,000</option>
+                                            <option value="100k-250k">$100,000 - $250,000</option>
+                                            <option value="250k-500k">$250,000 - $500,000</option>
+                                            <option value="500k-1m">$500,000 - $1,000,000</option>
+                                            <option value="1m+">$1,000,000+</option>
+                                            <option value="discuss">Discuss with team</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Compliance Requirements
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="compliance"
+                                            class="form-input"
+                                            placeholder="e.g., SOC 2, HIPAA, GDPR, PCI DSS"
+                                        />
+                                        <div class="form-help">List any specific compliance standards or regulations.</div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Step 3: Review -->
-                    <div id="step-review" class="hidden">
-                        <h2 class="text-2xl font-bold text-white mb-6">Review Your Request</h2>
-                        <div id="review-content" class="space-y-8">
-                            <!-- Review content will be populated by JavaScript -->
-                        </div>
-                    </div>
+                            <!-- Step 3: Review -->
+                            <div id="step-review" class="form-step hidden">
+                                <div class="form-header">
+                                    <h2 class="form-title">Review Your Request</h2>
+                                    <p class="form-subtitle">Please review your information before submitting your project request.</p>
+                                </div>
+                                
+                                <div id="review-content" class="review-sections">
+                                    <!-- Review content will be populated by JavaScript -->
+                                </div>
+                            </div>
 
-                    <!-- Success Message -->
-                    <div id="success-message" class="hidden text-center">
-                        <div class="mb-6">
-                            <svg class="w-16 h-16 mx-auto text-complementary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <h2 class="text-3xl font-bold text-white mb-4">Thank You!</h2>
-                        <p class="text-lg text-gray-300 mb-6">
-                            Your project inquiry has been submitted successfully. Our team will review your requirements and get back to you within 24 hours.
-                        </p>
-                        <button type="button" id="new-submission" class="btn btn-enterprise btn-primary">
-                            Submit Another Request
-                        </button>
-                    </div>
+                            <!-- Success Message -->
+                            <div id="success-message" class="success-section hidden">
+                                <div class="success-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <h2 class="success-title">Request Submitted Successfully</h2>
+                                <p class="success-description">
+                                    Thank you for your interest in our enterprise infrastructure solutions. Our technical team will review 
+                                    your requirements and contact you within 24 hours to discuss next steps.
+                                </p>
+                                <div class="success-details">
+                                    <div class="success-item">
+                                        <h4>What happens next?</h4>
+                                        <ul>
+                                            <li>Technical team reviews your requirements</li>
+                                            <li>Initial consultation call scheduled</li>
+                                            <li>Detailed technical proposal provided</li>
+                                            <li>Project timeline and architecture discussion</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button type="button" id="new-submission" class="btn btn-primary">
+                                    Submit Another Request
+                                </button>
+                            </div>
 
-                    <!-- Navigation Buttons -->
-                    <div class="flex justify-between mt-8" id="form-navigation">
-                        <button type="button" id="back-btn" class="btn btn-enterprise btn-secondary opacity-50 cursor-not-allowed" disabled>
-                            <span>Back</span>
-                        </button>
-                        
-                        <button type="button" id="next-btn" class="btn btn-enterprise btn-primary">
-                            <span>Continue</span>
-                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
+                            <!-- Form Navigation -->
+                            <div class="form-navigation" id="form-navigation">
+                                <button type="button" id="back-btn" class="btn btn-secondary" disabled>
+                                    <svg class="btn-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 19l-7-7 7-7"/>
+                                    </svg>
+                                    <span>Previous</span>
+                                </button>
+                                
+                                <button type="button" id="next-btn" class="btn btn-primary">
+                                    <span>Continue</span>
+                                    <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
 
-                        <button type="submit" id="submit-btn" class="btn btn-enterprise btn-primary hidden">
-                            <span>Submit Request</span>
-                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
+                                <button type="submit" id="submit-btn" class="btn btn-primary hidden">
+                                    <span>Submit Request</span>
+                                    <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
 
-                    <div id="submit-error" class="mt-4 p-4 bg-red-900/20 border border-red-500 text-red-300 hidden">
-                        Failed to submit form. Please try again.
+                            <div id="submit-error" class="form-error-global hidden">
+                                <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                                </svg>
+                                <span>Failed to submit request. Please try again or contact our support team.</span>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Information -->
+    <!-- Enterprise Service Information -->
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <div class="ibm-card text-center">
-            <div class="mb-4">
-                <svg class="w-8 h-8 mx-auto text-complementary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Email Response</h3>
-            <p class="text-gray-300">Initial response within 24 hours</p>
-        </div>
-
-        <div class="ibm-card text-center">
-            <div class="mb-4">
-                <svg class="w-8 h-8 mx-auto text-complementary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Technical Review</h3>
-            <p class="text-gray-300">Comprehensive analysis of your requirements</p>
+            <h3 class="service-title">Enterprise SLA</h3>
+            <p class="service-description">24-hour response time with dedicated technical team support and escalation procedures.</p>
         </div>
 
         <div class="ibm-card text-center">
-            <div class="mb-4">
-                <svg class="w-8 h-8 mx-auto text-complementary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
             </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Rapid Deployment</h3>
-            <p class="text-gray-300">From concept to production infrastructure</p>
+            <h3 class="service-title">Rapid Architecture</h3>
+            <p class="service-description">Research-driven architecture design with proven patterns for enterprise scalability and performance.</p>
+        </div>
+
+        <div class="ibm-card text-center">
+            <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+            </div>
+            <h3 class="service-title">Security First</h3>
+            <p class="service-description">Enterprise-grade security and compliance built into every architecture from the ground up.</p>
         </div>
     </section>
 </Layout>
 
 <script>
-    // Multi-step form functionality
+    // Enhanced IBM-style multi-step form functionality
     let currentStep = 1;
     const totalSteps = 3;
 
     const steps = {
         1: document.getElementById('step-contact'),
-        2: document.getElementById('step-project'),
+        2: document.getElementById('step-technical'),
         3: document.getElementById('step-review')
     };
 
-    const stepIndicators = {
-        1: { element: document.querySelector('[data-step="1"]'), line: null },
-        2: { element: document.getElementById('step2'), line: document.getElementById('step2-line') },
-        3: { element: document.getElementById('step3'), line: document.getElementById('step3-line') }
+    const navSteps = {
+        1: document.getElementById('nav-step-1'),
+        2: document.getElementById('nav-step-2'),
+        3: document.getElementById('nav-step-3')
     };
 
     const backBtn = document.getElementById('back-btn');
@@ -314,27 +430,26 @@ import ContextAlert from '../components/ContextAlert.astro';
 
     function updateStepIndicators() {
         for (let i = 1; i <= totalSteps; i++) {
-            const indicator = stepIndicators[i];
-            const circle = indicator.element.querySelector('div');
+            const navStep = navSteps[i];
+            const circle = navStep.querySelector('.step-circle');
+            const number = navStep.querySelector('.step-number');
+            const check = navStep.querySelector('.step-check');
             
             if (i < currentStep) {
                 // Completed step
-                indicator.element.className = 'flex items-center text-gray-400';
-                circle.className = 'w-8 h-8 rounded-full border-2 border-gray-400 flex items-center justify-center mr-3';
-                if (indicator.line) {
-                    indicator.line.className = 'w-16 h-0.5 bg-complementary';
-                }
+                navStep.className = 'step-indicator completed';
+                number.style.display = 'none';
+                check.classList.remove('hidden');
             } else if (i === currentStep) {
                 // Current step
-                indicator.element.className = 'flex items-center text-complementary';
-                circle.className = 'w-8 h-8 rounded-full border-2 border-complementary bg-complementary text-black flex items-center justify-center mr-3';
+                navStep.className = 'step-indicator active';
+                number.style.display = 'block';
+                check.classList.add('hidden');
             } else {
                 // Future step
-                indicator.element.className = 'flex items-center text-gray-600';
-                circle.className = 'w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center mr-3';
-                if (indicator.line) {
-                    indicator.line.className = 'w-16 h-0.5 bg-gray-600';
-                }
+                navStep.className = 'step-indicator';
+                number.style.display = 'block';
+                check.classList.add('hidden');
             }
         }
     }
@@ -349,8 +464,8 @@ import ContextAlert from '../components/ContextAlert.astro';
         // Update navigation
         backBtn.disabled = step === 1;
         backBtn.className = step === 1 
-            ? 'btn btn-enterprise btn-secondary opacity-50 cursor-not-allowed'
-            : 'btn btn-enterprise btn-secondary';
+            ? 'btn btn-secondary opacity-50 cursor-not-allowed'
+            : 'btn btn-secondary';
 
         if (step === totalSteps) {
             nextBtn.classList.add('hidden');
@@ -370,21 +485,27 @@ import ContextAlert from '../components/ContextAlert.astro';
         let isValid = true;
 
         requiredFields.forEach(field => {
-            const errorDiv = field.parentElement.querySelector('.error-message');
+            const errorDiv = field.parentElement.querySelector('.form-error');
             
             if (!field.value.trim()) {
-                field.classList.add('border-red-500');
-                errorDiv.textContent = 'This field is required';
-                errorDiv.classList.remove('hidden');
+                field.style.borderColor = '#da1e28';
+                if (errorDiv) {
+                    errorDiv.textContent = 'This field is required';
+                    errorDiv.classList.remove('hidden');
+                }
                 isValid = false;
             } else if (field.type === 'email' && !isValidEmail(field.value)) {
-                field.classList.add('border-red-500');
-                errorDiv.textContent = 'Please enter a valid email address';
-                errorDiv.classList.remove('hidden');
+                field.style.borderColor = '#da1e28';
+                if (errorDiv) {
+                    errorDiv.textContent = 'Please enter a valid email address';
+                    errorDiv.classList.remove('hidden');
+                }
                 isValid = false;
             } else {
-                field.classList.remove('border-red-500');
-                errorDiv.classList.add('hidden');
+                field.style.borderColor = '';
+                if (errorDiv) {
+                    errorDiv.classList.add('hidden');
+                }
             }
         });
 
@@ -400,25 +521,71 @@ import ContextAlert from '../components/ContextAlert.astro';
         const reviewContent = document.getElementById('review-content');
         
         reviewContent.innerHTML = `
-            <div>
-                <h3 class="text-lg font-semibold text-complementary mb-4">Contact Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div><span class="text-gray-400">Name:</span> <p class="text-white">${formData.get('name') || ''}</p></div>
-                    <div><span class="text-gray-400">Email:</span> <p class="text-white">${formData.get('email') || ''}</p></div>
-                    <div><span class="text-gray-400">Company:</span> <p class="text-white">${formData.get('company') || ''}</p></div>
-                    ${formData.get('phone') ? `<div><span class="text-gray-400">Phone:</span> <p class="text-white">${formData.get('phone')}</p></div>` : ''}
+            <div class="review-section">
+                <h3>Contact Information</h3>
+                <div class="review-grid">
+                    <div class="review-item">
+                        <span class="review-label">Full Name</span>
+                        <span class="review-value">${formData.get('name') || '—'}</span>
+                    </div>
+                    <div class="review-item">
+                        <span class="review-label">Work Email</span>
+                        <span class="review-value">${formData.get('email') || '—'}</span>
+                    </div>
+                    <div class="review-item">
+                        <span class="review-label">Company</span>
+                        <span class="review-value">${formData.get('company') || '—'}</span>
+                    </div>
+                    <div class="review-item">
+                        <span class="review-label">Job Title</span>
+                        <span class="review-value">${formData.get('jobTitle') || '—'}</span>
+                    </div>
+                    <div class="review-item">
+                        <span class="review-label">Company Size</span>
+                        <span class="review-value">${formData.get('companySize') || '—'}</span>
+                    </div>
+                    ${formData.get('phone') ? `
+                    <div class="review-item">
+                        <span class="review-label">Phone</span>
+                        <span class="review-value">${formData.get('phone')}</span>
+                    </div>
+                    ` : ''}
                 </div>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold text-complementary mb-4">Project Details</h3>
-                <div class="space-y-4">
-                    <div><span class="text-gray-400">Project Type:</span> <p class="text-white">${formData.get('projectType') || ''}</p></div>
-                    <div><span class="text-gray-400">Description:</span> <p class="text-white">${formData.get('description') || ''}</p></div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div><span class="text-gray-400">Timeline:</span> <p class="text-white">${formData.get('timeline') || ''}</p></div>
-                        ${formData.get('budget') ? `<div><span class="text-gray-400">Budget Range:</span> <p class="text-white">${formData.get('budget')}</p></div>` : ''}
+            
+            <div class="review-section">
+                <h3>Technical Requirements</h3>
+                <div class="review-grid">
+                    <div class="review-item">
+                        <span class="review-label">Infrastructure Challenge</span>
+                        <span class="review-value">${formData.get('challengeType') || '—'}</span>
                     </div>
-                    ${formData.get('requirements') ? `<div><span class="text-gray-400">Specific Requirements:</span> <p class="text-white">${formData.get('requirements')}</p></div>` : ''}
+                    <div class="review-item">
+                        <span class="review-label">Project Timeline</span>
+                        <span class="review-value">${formData.get('timeline') || '—'}</span>
+                    </div>
+                    ${formData.get('budget') ? `
+                    <div class="review-item">
+                        <span class="review-label">Investment Range</span>
+                        <span class="review-value">${formData.get('budget')}</span>
+                    </div>
+                    ` : ''}
+                    ${formData.get('compliance') ? `
+                    <div class="review-item">
+                        <span class="review-label">Compliance Requirements</span>
+                        <span class="review-value">${formData.get('compliance')}</span>
+                    </div>
+                    ` : ''}
+                    <div class="review-item review-item-full">
+                        <span class="review-label">Technical Requirements</span>
+                        <span class="review-value">${formData.get('requirements') || '—'}</span>
+                    </div>
+                    ${formData.get('techStack') ? `
+                    <div class="review-item review-item-full">
+                        <span class="review-label">Current Technology Stack</span>
+                        <span class="review-value">${formData.get('techStack')}</span>
+                    </div>
+                    ` : ''}
                 </div>
             </div>
         `;
@@ -439,6 +606,17 @@ import ContextAlert from '../components/ContextAlert.astro';
         }
     });
 
+    // Click navigation through sidebar
+    Object.keys(navSteps).forEach(stepNum => {
+        navSteps[stepNum].addEventListener('click', () => {
+            const targetStep = parseInt(stepNum);
+            if (targetStep < currentStep || (targetStep === currentStep + 1 && validateStep(currentStep))) {
+                currentStep = targetStep;
+                showStep(currentStep);
+            }
+        });
+    });
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -447,8 +625,8 @@ import ContextAlert from '../components/ContextAlert.astro';
         
         // Show loading state
         submitBtn.innerHTML = `
-            <div class="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-            <span>Submitting...</span>
+            <div class="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+            <span>Submitting Request...</span>
         `;
         submitBtn.disabled = true;
 
@@ -459,14 +637,17 @@ import ContextAlert from '../components/ContextAlert.astro';
                     name: formData.get('name'),
                     email: formData.get('email'),
                     company: formData.get('company'),
-                    phone: formData.get('phone') || ''
+                    jobTitle: formData.get('jobTitle'),
+                    phone: formData.get('phone') || '',
+                    companySize: formData.get('companySize')
                 },
-                projectDetails: {
-                    projectType: formData.get('projectType'),
-                    description: formData.get('description'),
+                technicalRequirements: {
+                    challengeType: formData.get('challengeType'),
+                    requirements: formData.get('requirements'),
+                    techStack: formData.get('techStack') || '',
                     timeline: formData.get('timeline'),
                     budget: formData.get('budget') || '',
-                    requirements: formData.get('requirements') || ''
+                    compliance: formData.get('compliance') || ''
                 }
             };
 
@@ -483,6 +664,13 @@ import ContextAlert from '../components/ContextAlert.astro';
                 document.getElementById('form-navigation').classList.add('hidden');
                 Object.values(steps).forEach(el => el.classList.add('hidden'));
                 document.getElementById('success-message').classList.remove('hidden');
+                
+                // Update sidebar to show completion
+                Object.values(navSteps).forEach(navStep => {
+                    navStep.className = 'step-indicator completed';
+                    navStep.querySelector('.step-number').style.display = 'none';
+                    navStep.querySelector('.step-check').classList.remove('hidden');
+                });
             } else {
                 throw new Error('Failed to submit form');
             }
@@ -493,8 +681,8 @@ import ContextAlert from '../components/ContextAlert.astro';
             // Reset button
             submitBtn.innerHTML = `
                 <span>Submit Request</span>
-                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             `;
             submitBtn.disabled = false;
@@ -508,16 +696,20 @@ import ContextAlert from '../components/ContextAlert.astro';
         document.getElementById('success-message').classList.add('hidden');
         document.getElementById('form-navigation').classList.remove('hidden');
         showStep(currentStep);
+        
+        // Clear all error states
+        form.querySelectorAll('.form-error').forEach(error => error.classList.add('hidden'));
+        form.querySelectorAll('input, select, textarea').forEach(field => {
+            field.style.borderColor = '';
+        });
     });
 
     // Clear errors on input
     form.addEventListener('input', (e) => {
-        if (e.target.classList.contains('border-red-500')) {
-            e.target.classList.remove('border-red-500');
-            const errorDiv = e.target.parentElement.querySelector('.error-message');
-            if (errorDiv) {
-                errorDiv.classList.add('hidden');
-            }
+        e.target.style.borderColor = '';
+        const errorDiv = e.target.parentElement.querySelector('.form-error');
+        if (errorDiv) {
+            errorDiv.classList.add('hidden');
         }
     });
 

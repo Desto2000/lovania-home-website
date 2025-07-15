@@ -1,43 +1,105 @@
 @import 'tailwindcss';
 
 @theme {
-    --font-sans: 'IBM Plex Sans', 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #6677fb;
-    --color-primary-title: #c7ceff;
-    --color-primary-compilator: #2adbcd;
-    --color-primary-content: #101828;
-    --color-complementary: #2adbcd;
-    --color-black: #161616;
-    --font-size: 1.125rem;
-    --text-sm: .875rem;
+    /* IBM Design Language Color Palette */
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    
+    /* IBM Primary Colors */
+    --color-ibm-blue: #0f62fe;
+    --color-ibm-blue-hover: #0353e9;
+    --color-ibm-blue-light: #4589ff;
+    --color-ibm-teal: #009d9a;
+    --color-ibm-teal-light: #1192e8;
+    
+    /* IBM Gray Scale - Exact specifications */
+    --color-gray-100: #161616;  /* Main background */
+    --color-gray-90: #262626;   /* Secondary background */
+    --color-gray-80: #393939;   /* Tertiary background */
+    --color-gray-70: #525252;   /* Border/divider */
+    --color-gray-60: #6f6f6f;   /* Secondary text */
+    --color-gray-50: #8d8d8d;   /* Placeholder text */
+    --color-gray-40: #a8a8a8;   /* Disabled text */
+    --color-gray-30: #c6c6c6;   /* Primary text on dark */
+    --color-gray-20: #e0e0e0;   /* Primary text */
+    --color-gray-10: #f4f4f4;   /* Text on light backgrounds */
+    
+    /* IBM Enterprise Colors */
+    --color-primary: var(--color-ibm-blue);
+    --color-primary-hover: var(--color-ibm-blue-hover);
+    --color-secondary: var(--color-ibm-teal);
+    --color-accent: var(--color-ibm-blue-light);
+    --color-complementary: var(--color-ibm-teal);
+    
+    /* Backgrounds - IBM Specifications */
+    --background-primary: var(--color-gray-100);
+    --background-secondary: var(--color-gray-90);
+    --background-tertiary: var(--color-gray-80);
+    --background-hover: var(--color-gray-90);
+    
+    /* Text Colors */
+    --text-primary: var(--color-gray-10);
+    --text-secondary: var(--color-gray-30);
+    --text-tertiary: var(--color-gray-50);
+    --text-disabled: var(--color-gray-40);
+    
+    /* Legacy compatibility */
+    --color-black: var(--color-gray-100);
+    --color-primary-title: var(--color-gray-20);
+    --color-primary-content: var(--color-gray-10);
+    
+    /* Typography Scale - IBM Design Language */
+    --font-size: 1rem;
+    --text-sm: 0.875rem;
     --text-lg: 1.125rem;
     --text-xl: 1.25rem;
-    --default-font-family: 'IBM Plex Sans', var(--font-geist-sans);
-    --spacing: .25rem;
-    --font-weight-normal: 500;
-    --ring: oklch(.556 0 0);
-    --text-xl--line-height: calc(1.75/1.25);
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    
+    /* Font weights - IBM Design Language */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Spacing Scale - IBM Grid */
+    --spacing-xs: 0.25rem;   /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+    --spacing-3xl: 4rem;     /* 64px */
+    
+    --default-font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    --ring: var(--color-primary);
+    --text-xl--line-height: 1.4;
 }
 
 .dark {
-  --background: oklch(.2 0 0);
-  --foreground: oklch(.985 0 0);
-  --card: oklch(.205 0 0);
-  --card-foreground: oklch(.985 0 0);
-  --popover: oklch(.205 0 0);
-  --popover-foreground: oklch(.985 0 0);
-  --primary: oklch(.922 0 0);
-  --primary-foreground: oklch(.205 0 0);
-  --secondary: oklch(.269 0 0);
-  --secondary-foreground: oklch(.985 0 0);
-  --muted: oklch(.269 0 0);
-  --muted-foreground: oklch(.708 0 0);
-  --accent: oklch(.269 0 0);
-  --accent-foreground: oklch(.985 0 0);
-  --destructive: oklch(.704 .191 22.216);
-  --border: oklch(1 0 0/10%);
-  --input: oklch(1 0 0/15%);
-  --ring: oklch(.556 0 0);
+  /* IBM Dark Theme Colors */
+  --background: var(--background-primary);
+  --foreground: var(--text-primary);
+  --card: var(--background-secondary);
+  --card-foreground: var(--text-primary);
+  --popover: var(--background-secondary);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-gray-100);
+  --secondary: var(--background-tertiary);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--background-tertiary);
+  --muted-foreground: var(--text-secondary);
+  --accent: var(--background-tertiary);
+  --accent-foreground: var(--text-primary);
+  --destructive: #da1e28;
+  --destructive-foreground: var(--text-primary);
+  --border: var(--color-gray-70);
+  --input: var(--background-tertiary);
+  --ring: var(--color-primary);
 }
 
 @layer base {
@@ -45,119 +107,174 @@
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    line-height: 1.5;
-    font-family: var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");
-    font-feature-settings: var(--default-font-feature-settings,normal);
-    font-variation-settings: var(--default-font-variation-settings,normal);
+    line-height: 1.6;
+    font-family: var(--default-font-family);
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    font-weight: var(--font-weight-normal);
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-size: var(--font-size);
+    line-height: 1.6;
   }
 }
 
 @layer base {
+    /* IBM Typography Scale */
     h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
+        @apply text-4xl md:text-5xl lg:text-6xl;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        font-weight: 300;
+        font-weight: var(--font-weight-light);
         letter-spacing: -0.025em;
+        line-height: 1.2;
+        color: var(--text-primary);
     }
 
     h2 {
-        @apply text-2xl font-bold sm:text-3xl;
+        @apply text-2xl md:text-3xl lg:text-4xl;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        font-weight: 400;
+        font-weight: var(--font-weight-normal);
         letter-spacing: -0.02em;
+        line-height: 1.3;
+        color: var(--text-primary);
     }
 
     h3 {
-        @apply text-lg font-semibold;
+        @apply text-xl md:text-2xl;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        font-weight: 500;
+        font-weight: var(--font-weight-medium);
         letter-spacing: -0.01em;
+        line-height: 1.4;
+        color: var(--text-primary);
     }
 
     h4 {
-        @apply text-base font-semibold;
+        @apply text-lg md:text-xl;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        font-weight: 500;
+        font-weight: var(--font-weight-medium);
+        line-height: 1.4;
+        color: var(--text-primary);
+    }
+
+    h5 {
+        @apply text-base md:text-lg;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: var(--font-weight-medium);
+        line-height: 1.5;
+        color: var(--text-primary);
+    }
+
+    h6 {
+        @apply text-sm md:text-base;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: var(--font-weight-semibold);
+        line-height: 1.5;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    p {
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: var(--font-weight-normal);
+        line-height: 1.6;
+        color: var(--text-secondary);
     }
 
     a:not(.btn) {
-        @apply transition hover:opacity-80;
+        @apply transition-all duration-200;
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    a:not(.btn):hover {
+        color: var(--color-primary-hover);
+        text-decoration: underline;
     }
 
     pre {
         @apply p-6 overflow-x-auto rounded-lg;
+        background: var(--background-tertiary);
+        border: 1px solid var(--border);
+        font-family: var(--font-mono);
     }
 
     :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
+        @apply px-2 py-1 font-mono rounded;
+        background: var(--background-tertiary);
+        color: var(--color-accent);
         font-size: 0.9em;
+        border: 1px solid var(--border);
     }
 }
+
+/* IBM Enterprise Design Components */
 
 .logo-abs {
     background: linear-gradient(
         90deg,
-        #6677fb 0%,
-        #48aae4 27.97%,
-        #3ac1d9 59.91%,
-        #2adbcd 100%
+        var(--color-primary) 0%,
+        var(--color-accent) 50%,
+        var(--color-secondary) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    outline-color: color-mix(in oklab,var(--ring)50%,transparent);
-    border:0 solid;
-    margin: 0;
-    padding: 0;
-    tab-size: 4;
     font-size: 1.5rem;
-    font-family: Campton,Arial,sans-serif;font-weight:700;
-    line-height: calc(2/1.5);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
 }
 
 @layer components {
     .expression-title {
-        caret-color: var(--color-primary);
-        color: transparent;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
         -webkit-background-clip: text;
         background-clip: text;
-        background-image: linear-gradient(90deg, var(--color-primary), var(--color-primary-content));
+        -webkit-text-fill-color: transparent;
         font-size: clamp(2.5rem, 5vw, 4rem);
         line-height: 1.1;
-        font-weight: 300;
+        font-weight: var(--font-weight-light);
         letter-spacing: -0.03em;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
-    /* IBM-style asymmetric grid helpers */
+    /* IBM-style Grid Systems */
+    .ibm-grid {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        gap: var(--spacing-lg);
+        max-width: 1584px; /* IBM Grid max-width */
+        margin: 0 auto;
+        padding: 0 var(--spacing-lg);
+    }
+
     .ibm-grid-asymmetric {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        gap: 2rem;
+        gap: var(--spacing-2xl);
         align-items: start;
     }
 
     .ibm-grid-offset {
         display: grid;
         grid-template-columns: 1fr 2fr;
-        gap: 2rem;
+        gap: var(--spacing-2xl);
         align-items: start;
     }
 
-    /* IBM-style content cards */
+    /* IBM-style Enterprise Cards */
     .ibm-card {
-        background: linear-gradient(135deg, rgba(42, 219, 205, 0.05) 0%, rgba(102, 119, 251, 0.05) 100%);
-        border: 1px solid rgba(42, 219, 205, 0.2);
-        border-radius: 8px;
-        padding: 1.5rem;
+        background: var(--background-secondary);
+        border: 1px solid var(--border);
+        padding: var(--spacing-2xl);
         position: relative;
-        overflow: hidden;
+        transition: all 0.2s ease;
     }
 
     .ibm-card::before {
@@ -167,13 +284,18 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: linear-gradient(90deg, var(--color-complementary), transparent);
+        background: var(--color-primary);
     }
 
-    /* IBM-style accent lines */
+    .ibm-card:hover {
+        background: var(--background-hover);
+        border-color: var(--color-primary);
+    }
+
+    /* IBM-style Accent Elements */
     .ibm-accent-line {
         position: relative;
-        padding-left: 1rem;
+        padding-left: var(--spacing-lg);
     }
 
     .ibm-accent-line::before {
@@ -183,23 +305,28 @@
         top: 0;
         width: 3px;
         height: 100%;
-        background: linear-gradient(180deg, var(--color-complementary), var(--color-primary));
+        background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
     }
 
-    /* Stats styling */
+    /* Enterprise Stats Grid */
     .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-2xl);
+        margin: var(--spacing-3xl) 0;
     }
 
     .stat-item {
         text-align: left;
-        padding: 1.5rem;
-        background: rgba(42, 219, 205, 0.05);
-        border-radius: 8px;
-        border-left: 4px solid var(--color-complementary);
+        padding: var(--spacing-2xl);
+        background: var(--background-secondary);
+        border-left: 4px solid var(--color-primary);
+        transition: all 0.2s ease;
+    }
+
+    .stat-item:hover {
+        background: var(--background-hover);
+        border-left-color: var(--color-accent);
     }
 }
 
@@ -224,81 +351,119 @@
 
         p {
             line-height: 1.7;
-            font-weight: 400;
+            font-weight: var(--font-weight-normal);
+            color: var(--text-secondary);
         }
     }
 
+    /* IBM Enterprise Button System */
     .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-complementary text-black cursor-pointer font-semibold no-underline transition-all duration-200;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
+        @apply inline-flex items-center justify-center gap-3;
+        background: var(--color-primary);
+        color: var(--background-primary);
+        cursor: pointer;
+        font-weight: var(--font-weight-medium);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        padding: var(--btn-py, 1rem) var(--btn-px, 2rem);
         font-size: var(--btn-font-size, 1rem);
-        line-height: 1.375;
-        letter-spacing: 0.01em;
-        font-weight: 500;
+        line-height: 1.5;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        border-radius: 4px;
-        border: none;
+        border: 2px solid var(--color-primary);
         position: relative;
         overflow: hidden;
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
+        min-height: 48px; /* IBM accessibility minimum */
+        min-width: 120px;
 
         &:hover {
-            @apply bg-complementary;
+            background: var(--color-primary-hover);
+            border-color: var(--color-primary-hover);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(42, 219, 205, 0.3);
         }
 
-        &:hover::before {
-            left: 100%;
+        &:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
         }
 
         &:disabled {
-            @apply text-gray-400 bg-gray-700;
+            background: var(--color-gray-70);
+            border-color: var(--color-gray-70);
+            color: var(--text-disabled);
+            cursor: not-allowed;
+            transform: none;
+        }
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+
+        &:hover {
+            background: var(--color-primary);
+            color: var(--background-primary);
+        }
+    }
+
+    .btn-tertiary {
+        background: transparent;
+        color: var(--text-primary);
+        border-color: var(--border);
+
+        &:hover {
+            background: var(--background-hover);
+            border-color: var(--color-primary);
         }
     }
 
     .btn-lg {
         --btn-font-size: 1.125rem;
-        --btn-px: 2rem;
-        --btn-py: 1.125rem;
+        --btn-px: 2.5rem;
+        --btn-py: 1.25rem;
+        min-height: 56px;
+    }
+
+    .btn-sm {
+        --btn-font-size: 0.875rem;
+        --btn-px: 1.5rem;
+        --btn-py: 0.75rem;
+        min-height: 40px;
+        min-width: 100px;
     }
 }
 
 @layer components {
     .leading-buttons {
         display: flex;
-        gap: 1rem;
+        gap: var(--spacing-lg);
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
     }
 
     .leading-button {
-        flex: 1;
-        min-width: 200px;
+        flex: 0 0 auto;
+        min-width: 240px;
     }
 
     .leading-button-second {
-        @apply inline-flex items-center justify-center gap-2 bg-transparent text-complementary cursor-pointer font-semibold no-underline transition-all duration-200;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
+        @apply inline-flex items-center justify-center gap-3;
+        background: transparent;
+        color: var(--color-primary);
+        cursor: pointer;
+        font-weight: var(--font-weight-medium);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        padding: var(--btn-py, 1rem) var(--btn-px, 2rem);
         font-size: var(--btn-font-size, 1rem);
-        line-height: 1.375;
-        letter-spacing: 0.01em;
-        font-weight: 500;
+        line-height: 1.5;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
-        border-radius: 4px;
-        border: 2px solid var(--color-complementary);
+        border: 2px solid var(--color-primary);
         position: relative;
         overflow: hidden;
+        min-height: 48px;
+        min-width: 240px;
 
         &::before {
             content: '';
@@ -307,23 +472,32 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: var(--color-complementary);
+            background: var(--color-primary);
             transition: width 0.3s ease;
             z-index: -1;
         }
 
         &:hover {
-            @apply text-black;
+            color: var(--background-primary);
+            border-color: var(--color-primary-hover);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(42, 219, 205, 0.3);
         }
 
         &:hover::before {
             width: 100%;
+            background: var(--color-primary-hover);
+        }
+
+        &:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
         }
 
         &:disabled {
-            @apply text-gray-400 bg-gray-700;
+            color: var(--text-disabled);
+            border-color: var(--color-gray-70);
+            cursor: not-allowed;
+            transform: none;
         }
     }
 }
@@ -351,14 +525,84 @@
     }
 }
 
-/* Enterprise Clean Design - No Effects, Sharp Corners */
-
-/* Hero Section */
-.hero-section {
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(42, 219, 205, 0.03) 0%, rgba(102, 119, 251, 0.05) 100%);
+/* IBM Enterprise Button System */
+.btn-enterprise {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    border: 2px solid;
+    transition: all 0.2s ease;
+    min-width: 280px;
+    min-height: 56px;
     position: relative;
     overflow: hidden;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    justify-content: space-between;
+}
+
+.btn-enterprise span {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--background-primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-enterprise:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(15, 98, 254, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--background-primary);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-enterprise:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-enterprise:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* IBM Enterprise Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background: var(--background-primary);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3xl) 0;
 }
 
 .hero-section::before {
@@ -368,86 +612,32 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(42, 219, 205, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle at 30% 20%, rgba(15, 98, 254, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 157, 154, 0.06) 0%, transparent 50%);
     pointer-events: none;
 }
 
-/* Enterprise Buttons */
-.btn-enterprise {
-    display: inline-flex;
-    align-items: center;
-    gap: 1.5rem; /* Key change: use gap instead of space-between */
-    padding: 1.25rem 2rem; /* Increased padding for more breathing room */
-    font-size: 1rem; /* Slightly smaller, cleaner text */
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 0;
-    border: 2px solid;
-    transition: all 0.3s ease;
-    min-width: 240px; /* Increased minimum width */
-    position: relative;
-    overflow: hidden;
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
-    /* Remove justify-content space-between */
-}
-
-.btn-enterprise span {
-    flex: 0 0 auto; /* Prevent text from stretching */
-    white-space: nowrap; /* Keep text on one line */
-}
-
-.btn-primary {
-    background-color: var(--color-complementary);
-    border-color: var(--color-complementary);
-    color: #000;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border-color: var(--color-complementary);
-    color: var(--color-complementary);
-}
-
-.btn-enterprise:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(42, 219, 205, 0.25);
-}
-
-.btn-primary:hover {
-    background-color: #25c4b8;
-    border-color: #25c4b8;
-}
-
-.btn-secondary:hover {
-    background-color: var(--color-complementary);
-    color: #000;
-}
-
-.arrow-icon {
-    width: 20px;
-    height: 20px;
-    stroke-width: 2;
-    transition: transform 0.3s ease;
-    flex-shrink: 0; /* Prevent arrow from shrinking */
-    margin-left: auto; /* Push arrow to the right, but with gap spacing */
-}
-
-.btn-enterprise:hover .arrow-icon {
-    transform: translateX(4px);
-}
-
-/* Clean Focus Areas Table - No Background, Sharp Corners */
+/* IBM Enterprise Layout Tables */
+/* IBM Enterprise Layout Tables */
 .focus-table {
-    border: 1px solid rgba(75, 85, 99, 0.3);
-    border-radius: 0; /* Sharp corners */
+    border: 1px solid var(--border);
     overflow: hidden;
-    background: transparent; /* Same as page background */
+    background: var(--background-secondary);
+    transition: all 0.2s ease;
+}
+
+.focus-table:hover {
+    border-color: var(--color-primary);
 }
 
 .focus-row {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(75, 85, 99, 0.2);
-    /* No hover effects */
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.focus-row:hover {
+    background: var(--background-hover);
 }
 
 .focus-row:last-child {
@@ -455,17 +645,19 @@
 }
 
 .focus-label {
-    color: #e5e7eb;
-    font-weight: 400;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-medium);
     font-size: 1rem;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
+/* IBM Enterprise Methodology Layout */
 .methodology-flexbox {
     display: flex;
-    align-items: center; /* Perfect vertical centering */
+    align-items: center;
     justify-content: center;
-    gap: 2rem;
-    max-width: 900px;
+    gap: var(--spacing-2xl);
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -473,69 +665,121 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* Prevent arrow container from shrinking */
+    flex-shrink: 0;
 }
 
 .methodology-box {
-    padding: 2rem 1.5rem;
-    border: 1px solid rgba(75, 85, 99, 0.3);
-    border-radius: 0;
-    background: transparent;
+    padding: var(--spacing-2xl);
+    border: 1px solid var(--border);
+    background: var(--background-secondary);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 160px;
-    width: 200px;
-    flex-shrink: 0; /* Prevent boxes from shrinking */
+    height: 180px;
+    width: 240px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.methodology-box:hover {
+    background: var(--background-hover);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
 }
 
 .arrow-connector {
     width: 24px;
     height: 24px;
-    color: rgba(156, 163, 175, 0.6);
+    color: var(--text-tertiary);
     stroke-width: 1.5;
 }
 
-/* Alternative approach using flexbox for the entire grid */
-.methodology-grid-alternative {
-    display: flex;
-    align-items: center; /* Ensures everything is vertically centered */
-    justify-content: center;
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Rest of your existing styles remain the same */
-
-/* Clean Stats Table - No Background, Sharp Corners */
+/* IBM Enterprise Stats Layout */
 .stats-table {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border: 1px solid rgba(75, 85, 99, 0.3);
-    border-radius: 0; /* Sharp corners */
+    border: 1px solid var(--border);
     overflow: hidden;
-    background: transparent; /* Same as page background */
+    background: var(--background-secondary);
 }
 
 .stats-box {
-    padding: 3rem 2.1rem;
+    padding: var(--spacing-3xl) var(--spacing-2xl);
     text-align: center;
-    border-right: 1px solid rgba(75, 85, 99, 0.2);
-    /* No hover effects or transitions */
+    border-right: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.stats-box:hover {
+    background: var(--background-hover);
 }
 
 .stats-box:last-child {
     border-right: none;
 }
 
-/* Responsive Design */
+/* IBM Enterprise Section Spacing */
+.section-spacing {
+    padding: var(--spacing-3xl) 0;
+}
+
+/* Hero Buttons Layout */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* CTA Section Buttons */
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* IBM Enterprise Responsive Design */
+@media (min-width: 640px) {
+    .hero-buttons {
+        flex-direction: row;
+        gap: var(--spacing-xl);
+        justify-content: center;
+    }
+    
+    .cta-buttons {
+        flex-direction: row;
+        gap: var(--spacing-xl);
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
+    .ibm-grid-asymmetric,
+    .ibm-grid-offset {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .expression-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .leading-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .leading-button {
+        min-width: auto;
+    }
+    
     .methodology-flexbox {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: var(--spacing-xl);
     }
     
     .methodology-arrow-flex {
@@ -544,7 +788,7 @@
     
     .methodology-box {
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
     }
     
     .stats-table {
@@ -553,7 +797,7 @@
     
     .stats-box {
         border-right: none;
-        border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+        border-bottom: 1px solid var(--border);
     }
     
     .stats-box:last-child {
@@ -563,81 +807,446 @@
     .btn-enterprise {
         width: 100%;
         min-width: auto;
-        justify-content: space-between; /* On mobile, spread out for better touch targets */
-        gap: 1rem;
-    }
-    
-    .arrow-icon {
-        margin-left: 0; /* Reset margin on mobile */
+        justify-content: space-between;
+        gap: var(--spacing-md);
     }
     
     .hero-section {
-        padding: 2rem 0;
-        height: 100vh;
+        padding: var(--spacing-2xl) 0;
+        min-height: 100vh;
         display: flex;
         align-items: center;
     }
     
-    .expression-title {
-        font-size: 2.5rem;
-        line-height: 1.2;
-        margin-bottom: 2rem;
+    .section-spacing {
+        padding: var(--spacing-2xl) 0;
     }
 }
 
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-}
-
-@media (min-width: 640px) {
-    .hero-buttons {
-        flex-direction: row;
-        gap: 1.5rem;
-        justify-content: center;
-    }
-}
-
-/* CTA section buttons */
-.cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-}
-
-@media (min-width: 640px) {
-    .cta-buttons {
-        flex-direction: row;
-        gap: 1.5rem;
-        justify-content: center;
-    }
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 639px) {
-    .btn-enterprise {
-        width: 100%;
-        min-width: auto;
-        justify-content: space-between; /* On mobile, spread out for better touch targets */
-        gap: 1rem;
+/* IBM Accessibility and Focus States */
+@media (prefers-reduced-motion: reduce) {
+    .btn-enterprise,
+    .methodology-box,
+    .stats-box,
+    .focus-row,
+    .ibm-card {
+        transition: none;
     }
     
-    .arrow-icon {
-        margin-left: 0; /* Reset margin on mobile */
+    .btn-enterprise:hover {
+        transform: none;
+    }
+    
+    .methodology-box:hover {
+        transform: none;
     }
 }
 
-/* Section spacing */
-.section-spacing {
-    padding: 8rem 0;
+/* IBM Enterprise Form System */
+.form-step {
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
+.form-step.hidden {
+    display: none;
+}
+
+.form-header {
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border);
+}
+
+.form-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.form-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    line-height: 1.6;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.required {
+    color: #da1e28;
+    margin-left: 2px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: var(--font-size);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--background-tertiary);
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    min-height: 48px;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--background-secondary);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.form-help {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin-top: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.form-error {
+    font-size: var(--text-sm);
+    color: #da1e28;
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.form-error.hidden {
+    display: none;
+}
+
+.form-error-global {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: rgba(218, 30, 40, 0.1);
+    border: 1px solid #da1e28;
+    color: #da1e28;
+    font-size: var(--text-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.error-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* IBM Enterprise Step Indicators */
+.step-indicator {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-left: 2px solid var(--border);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.step-indicator.active {
+    border-left-color: var(--color-primary);
+    background: rgba(15, 98, 254, 0.05);
+}
+
+.step-indicator.completed {
+    border-left-color: var(--color-secondary);
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--border);
+    background: var(--background-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.step-indicator.active .step-circle {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.step-indicator.completed .step-circle {
+    border-color: var(--color-secondary);
+    background: var(--color-secondary);
+}
+
+.step-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+}
+
+.step-indicator.active .step-number {
+    color: var(--background-primary);
+}
+
+.step-indicator.completed .step-number {
+    display: none;
+}
+
+.step-check {
+    width: 16px;
+    height: 16px;
+    color: var(--background-primary);
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-description {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    line-height: 1.4;
+}
+
+/* Form Navigation */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-3xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border);
+}
+
+.btn-icon-left,
+.btn-icon-right {
+    width: 20px;
+    height: 20px;
+}
+
+/* Review Sections */
+.review-sections {
+    display: grid;
+    gap: var(--spacing-2xl);
+}
+
+.review-section {
+    padding: var(--spacing-xl);
+    background: var(--background-tertiary);
+    border: 1px solid var(--border);
+}
+
+.review-section h3 {
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-lg);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.review-label {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    font-weight: var(--font-weight-medium);
+}
+
+.review-value {
+    color: var(--text-primary);
+    font-size: var(--font-size);
+}
+
+.review-item-full {
+    grid-column: 1 / -1;
+}
+
+/* Success Section */
+.success-section {
+    text-align: center;
+    padding: var(--spacing-3xl) 0;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: rgba(0, 157, 154, 0.1);
+    border: 2px solid var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-secondary);
+    stroke-width: 3;
+}
+
+.success-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.success-description {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.success-details {
+    max-width: 500px;
+    margin: 0 auto var(--spacing-2xl);
+    text-align: left;
+}
+
+.success-item h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.success-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.success-item li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.success-item li::before {
+    content: '✓';
+    color: var(--color-secondary);
+    font-weight: bold;
+    width: 16px;
+}
+
+/* Service Icons */
+.service-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: rgba(15, 98, 254, 0.1);
+    border: 1px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+}
+
+.service-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.service-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive Design for Forms */
 @media (max-width: 768px) {
-    .section-spacing {
-        padding: 4rem 0;
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .form-navigation {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .success-details {
+        text-align: center;
+    }
+}
+
+/* High contrast and accessibility */
+@media (prefers-contrast: high) {
+    .form-input,
+    .form-select,
+    .form-textarea {
+        border-width: 3px;
+    }
+    
+    .step-circle {
+        border-width: 3px;
     }
 }
 
