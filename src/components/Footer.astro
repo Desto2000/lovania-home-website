@@ -29,26 +29,28 @@ const {
 } = Astro.props;
 ---
 
-<!-- Footer CTA Section -->
-<footer class="footer-cta-section">
+<!-- Footer CTA Section - IBM Style -->
+<footer class="ibm-footer-cta">
     <!-- CTA Component -->
-    <section class="cta-section">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="cta-title">{ctaTitle}</h2>
-            <p class="cta-description">{ctaDescription}</p>
-            <div class="cta-buttons">
-                <a href={primaryCTA.href} class="btn-enterprise btn-primary">
-                    <span>{primaryCTA.text}</span>
-                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-                <a href={secondaryCTA.href} class="btn-enterprise btn-secondary">
-                    <span>{secondaryCTA.text}</span>
-                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
+    <section class="ibm-cta-section">
+        <div class="ibm-container">
+            <div class="ibm-cta-content">
+                <h2 class="ibm-cta-title">{ctaTitle}</h2>
+                <p class="ibm-cta-description">{ctaDescription}</p>
+                <div class="ibm-cta-actions">
+                    <a href={primaryCTA.href} class="ibm-btn ibm-btn--primary">
+                        <span>{primaryCTA.text}</span>
+                        <svg class="ibm-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href={secondaryCTA.href} class="ibm-btn ibm-btn--secondary">
+                        <span>{secondaryCTA.text}</span>
+                        <svg class="ibm-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
