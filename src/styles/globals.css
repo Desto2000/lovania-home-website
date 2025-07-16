@@ -573,13 +573,28 @@
     font-size: 1rem;
 }
 
+.item-1x3-grid {
+    @media (width >= 64rem /* 1024px */) {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.item-1x3-grid {
+    gap: 4rem;
+}
+
 .methodology-flexbox {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto;
+    
+    @media (width >= 64rem) {
+        justify-self: end; /* Bu satırı buraya taşıyın */
+        margin: 0; /* Auto margin'i kaldırın */
+    }
 }
 
 .methodology-arrow-flex {

@@ -57,14 +57,14 @@
 /* Footer Content */
 .footer-content {
     background-color: var(--color-gray-950);
-    padding: 4rem 0 2rem 0;
+    padding: 3rem 0 3rem 0;
 }
 
 /* Main Footer Layout - Logo Separate from Links */
 .footer-layout {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    gap: 4rem;
+    gap: 6rem;
     align-items: start;
 }
 
@@ -77,16 +77,18 @@
     font-size: 2.5rem;
     font-weight: bold;
     color: var(--color-complementary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.10rem;
     letter-spacing: 0.1em;
     line-height: 1.1;
 }
 
 .footer-brand-tagline {
-    font-size: 1rem;
-    color: #a1a1aa;
+    font-size: 0.875rem;
+    color: var(--color-gray-40);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1;
+    font-weight: var(--font-weight-light);
+    font-family: "IBM Plex Sans", sans-serif;
     max-width: 280px;
 }
 
