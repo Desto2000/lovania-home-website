@@ -167,14 +167,14 @@
         @apply text-4xl font-light tracking-tight sm:text-5xl;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
         letter-spacing: -0.025em;
-        color: var(--color-gray-100);
+        color: var(--color-gray-900);
     }
 
     h2 {
         @apply text-2xl font-normal sm:text-3xl;
         font-family: 'IBM Plex Sans', system-ui, sans-serif;
         letter-spacing: -0.02em;
-        color: var(--color-gray-100);
+        color: var(--color-gray-900);
     }
 
     h3 {
