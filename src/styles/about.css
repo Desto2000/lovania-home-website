@@ -1,6 +1,6 @@
 .about-hero-section {
     padding: 8rem 0 6rem 0;
-    background: linear-gradient(135deg, rgba(42, 219, 205, 0.03) 0%, rgba(102, 119, 251, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.02) 0%, rgba(0, 67, 206, 0.03) 100%);
     position: relative;
 }
 
@@ -11,7 +11,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(42, 219, 205, 0.08) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -22,15 +21,15 @@
 
 .section-title {
     font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
     margin-bottom: 3rem;
 }
 
 .content-subtitle {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-complementary);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-gray-900);
     margin-bottom: 1.5rem;
 }
 
@@ -71,15 +70,16 @@
 
 .focus-area-title {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: #ffffff;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-900);
     margin-bottom: 1rem;
 }
 
 .focus-area-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: #d1d5db;
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-medium);
     margin: 0;
 }
 
@@ -93,7 +93,7 @@
     font-size: 1.25rem;
     line-height: 1.7;
     color: #d1d5db;
-    text-align: center;
+    text-align: left;
     margin-bottom: 4rem;
 }
 
@@ -106,7 +106,8 @@
 
 .principle-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    align-content: center;
     gap: 2rem;
     padding: 2.5rem;
     border-bottom: 1px solid rgba(75, 85, 99, 0.2);
@@ -130,15 +131,16 @@
 
 .principle-title {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: #ffffff;
+    font-weight: 700;
+    color: var(--color-gray-900);
     margin-bottom: 0.5rem;
 }
 
 .principle-text {
     font-size: 1rem;
     line-height: 1.6;
-    color: #d1d5db;
+    font-weight: 500;
+    color: var(--color-gray-900);
     margin: 0;
 }
 
@@ -173,7 +175,8 @@
 .advantage-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: #d1d5db;
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-semibold);
     margin: 0;
 }
 
@@ -195,14 +198,14 @@
 .expertise-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-gray-900);
     margin-bottom: 1rem;
 }
 
 .expertise-text {
     font-size: 1rem;
     line-height: 1.6;
-    color: #d1d5db;
+    color: var(--color-gray-900);
     margin: 0;
 }
 
